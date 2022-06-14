@@ -1,0 +1,6 @@
+@import "styles/UI/variables.scss";
+
+.body_wrapper {
+  padding: $page-padding;
+  min-height: calc(100vh - 72px);
+}

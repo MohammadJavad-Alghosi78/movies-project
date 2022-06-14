@@ -1,0 +1,20 @@
+@import "styles/UI/variables.scss";
+@import "styles/UI/mixins.scss";
+
+.header_wrapper {
+  @include flex-between;
+  width: 100%;
+  background-color: $black;
+  color: $yellow;
+  padding: $page-padding;
+  max-height: 72px;
+  // position: fixed;
+  // top: 0;
+  .right_section {
+    @include flex-between;
+
+    .watchlist_text {
+      margin-right: 16px;
+    }
+  }
+}
