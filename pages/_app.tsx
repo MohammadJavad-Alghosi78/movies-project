@@ -1,16 +1,23 @@
-import "../styles/globals.css";
+// node_modules
 import type { AppProps } from "next/app";
+import { ReactNode } from "react";
+// State managent(s)
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
-import Layout from "@/components/shared/Layout";
+// Config
+import { Page } from "@/config/page";
+// Styles
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+type Props = AppProps & {
+  Component: Page;
+  pageProps: any;
+};
+
+function MyApp({ Component, pageProps }: Props): JSX.Element {
+  const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
   );
 }
 

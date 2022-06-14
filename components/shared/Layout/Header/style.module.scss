@@ -3,11 +3,13 @@
 
 .header_wrapper {
   @include flex-between;
+  width: 100%;
   background-color: $black;
   color: $yellow;
-  padding: 24px 36px;
+  padding: $page-padding;
   max-height: 72px;
-
+  // position: fixed;
+  // top: 0;
   .right_section {
     @include flex-between;
 
