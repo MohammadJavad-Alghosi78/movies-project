@@ -1,6 +1,7 @@
 // node_modules
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 // Components
 import TextField from "../../TextFiled";
 import Button from "../../Button";
@@ -12,8 +13,13 @@ import classes from "./style.module.scss";
 import headerConstants from "./constants";
 
 const Header = ({ isLogin = false }: HeaderType): JSX.Element => {
-  // States
   const [movie, setMovie] = useState("");
+  const router = useRouter();
+
+  const handleClick = () => {
+    isLogin ? console.log("You are logout") : router.push("/login");
+  };
+
   // JSX
   return (
     <div className={classes.header_wrapper}>
@@ -27,12 +33,10 @@ const Header = ({ isLogin = false }: HeaderType): JSX.Element => {
         />
       </div>
       <div className={classes.right_section}>
-        <Link href="/">
+        <Link href="/watchlist">
           <a className={classes.watchlist_text}>Watchlist</a>
         </Link>
-        <Button onClick={() => console.log("")}>
-          {isLogin ? "Logout" : "Login"}
-        </Button>
+        <Button onClick={handleClick}>{isLogin ? "Logout" : "Login"}</Button>
       </div>
     </div>
   );
