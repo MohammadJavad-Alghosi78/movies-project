@@ -1,0 +1,28 @@
+@import "styles/UI/variables.scss";
+@import "styles/UI/mixins.scss";
+
+.login_wrapper {
+  @include flex-center;
+  padding: 24px;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid $black;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+
+  .form_title {
+    text-align: center;
+    padding: 0;
+    margin: 0 0 32px 0;
+  }
+  .form_item {
+    @include flex-column;
+    margin-bottom: 16px;
+    .label {
+      margin-bottom: 8px;
+    }
+  }
+}

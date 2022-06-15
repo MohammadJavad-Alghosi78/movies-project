@@ -33,9 +33,11 @@ const Header = ({ isLogin = false }: HeaderType): JSX.Element => {
         />
       </div>
       <div className={classes.right_section}>
-        <Link href="/watchlist">
-          <a className={classes.watchlist_text}>Watchlist</a>
-        </Link>
+        {isLogin && (
+          <Link href="/watchlist">
+            <a className={classes.watchlist_text}>Watchlist</a>
+          </Link>
+        )}
         <Button onClick={handleClick}>{isLogin ? "Logout" : "Login"}</Button>
       </div>
     </div>
