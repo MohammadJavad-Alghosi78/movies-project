@@ -1,0 +1,21 @@
+@import "styles/UI/variables.scss";
+@import "styles/UI/mixins.scss";
+
+.actor_card_wrapper {
+  @include flex-column;
+  width: 200px;
+  height: 200px;
+  margin: 8px;
+  border: 1px solid $red;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  & > * {
+    width: 100%;
+    text-align: center;
+  }
+}
