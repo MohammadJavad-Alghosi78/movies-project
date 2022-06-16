@@ -36,7 +36,7 @@ const Header = (): JSX.Element => {
     } else {
       setIsLogin(false);
     }
-  });
+  }, []);
 
   // JSX
   return (
