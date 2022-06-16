@@ -1,0 +1,13 @@
+@import "styles/UI/variables.scss";
+@import "styles/UI/mixins.scss";
+
+.box_wrapper {
+  @include flex-column;
+  padding: 16px;
+  border: 1px solid $black;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
