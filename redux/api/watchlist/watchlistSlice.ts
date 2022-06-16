@@ -6,7 +6,6 @@ import {
 } from "./types";
 
 const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
-const sessionId = "";
 
 const handleWatchListUrl = (account_id: number) =>
   `/account/${account_id}/watchlist/movies?api_key=${API_KEY}&session_id=${"test"}`;
