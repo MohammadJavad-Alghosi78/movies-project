@@ -1,18 +1,25 @@
 // node_modules
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 // Components
 import TextField from "@/components/shared/TextFiled";
+// Constants
+import { EMAIL, PASSWORD } from "./constants";
 // Styles
 import classes from "./styles.module.scss";
 import Button from "@/components/shared/Button";
 
 const LoginView = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("submited");
+    if (email === EMAIL && password === PASSWORD) {
+      localStorage.setItem("token", "abcdefgh");
+      router.replace("/");
+    }
   };
   return (
     <div className={classes.login_wrapper}>

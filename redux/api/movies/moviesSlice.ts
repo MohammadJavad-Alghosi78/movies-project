@@ -7,7 +7,6 @@ const handleUrl = (baseUrl: string) => `${baseUrl}?api_key=${API_KEY}`;
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    // builder.query types
     getMovies: builder.query<moviesType, void>({
       query: () => handleUrl("/movie/popular"),
     }),

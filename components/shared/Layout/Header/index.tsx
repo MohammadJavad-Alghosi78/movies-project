@@ -1,10 +1,12 @@
 // node_modules
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // Components
 import TextField from "../../TextFiled";
 import Button from "../../Button";
+// Hooks
+import useAuth from "@/hooks/useAuth";
 // Types
 import { HeaderType } from "./types";
 // Styles
@@ -12,13 +14,29 @@ import classes from "./style.module.scss";
 // Constants
 import headerConstants from "./constants";
 
-const Header = ({ isLogin = false }: HeaderType): JSX.Element => {
-  const [movie, setMovie] = useState("");
+const Header = (): JSX.Element => {
   const router = useRouter();
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+  const { removeToken } = useAuth();
+  const [movie, setMovie] = useState("");
 
   const handleClick = () => {
-    isLogin ? console.log("You are logout") : router.push("/login");
+    if (isLogin) {
+      removeToken();
+      setIsLogin(false);
+    } else {
+      router.push("/login");
+    }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  });
 
   // JSX
   return (
