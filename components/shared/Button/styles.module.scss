@@ -1,6 +1,6 @@
 @import "styles/UI/variables.scss";
 
-.button_primary {
+@mixin default-button {
   border: none;
   outline: none;
   border-radius: 10px;
@@ -15,4 +15,15 @@
   height: 34px;
   cursor: pointer;
   text-align: center;
+}
+
+.button_primary {
+  @include default-button;
+  background-color: $red;
+}
+
+.button_danger {
+  @include default-button;
+  background-color: $yellow;
+  color: $black;
 }

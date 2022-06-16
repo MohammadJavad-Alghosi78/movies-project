@@ -1,6 +1,6 @@
 @import "styles/UI/variables.scss";
 
-.text_field {
+@mixin input-constants {
   border: none;
   outline: none;
   padding: 8px;
@@ -13,4 +13,13 @@
   &::placeholder {
     color: $gray;
   }
+}
+
+.text_field {
+  @include input-constants;
+}
+
+.text_field_bordered {
+  @include input-constants;
+  border: 1px solid $black;
 }

@@ -9,12 +9,20 @@ const TextField = ({
   value,
   handleChange,
   placeholder,
+  id,
+  type = "text",
+  hasBorder = false,
 }: TextFieldPropsTypes): JSX.Element => {
+  const handleClassName = () => {
+    if (hasBorder) return classes["text_field_bordered"];
+    return classes["text_field"];
+  };
   return (
     <input
-      className={classes.text_field}
+      className={handleClassName()}
       placeholder={placeholder}
-      type="text"
+      type={type}
+      id={id}
       value={value}
       onChange={handleChange}
     />
