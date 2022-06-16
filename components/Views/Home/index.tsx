@@ -16,7 +16,7 @@ const HomeView = () => {
   return (
     <div className={classes.movies_wrapper}>
       {data?.results?.map((movie: movieType) => (
-        <MovieCard {...movie} />
+        <MovieCard key={movie.id} {...movie} />
       ))}
     </div>
   );
