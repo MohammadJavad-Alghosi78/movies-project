@@ -48,7 +48,9 @@ const MovieView = () => {
       <div className={classes.actor_wrapper}>
         {actors?.cast.map((actor: any) => (
           // Why this link does not work when a tag is not exist?
-          <Link href={`/movies/${router.query.movieId}/actor/${actor.id}`}>
+          <Link
+            href={`/movies/${router.query.movieId}/actor/${actor.credit_id}`}
+          >
             <a>
               <ActorCard character={actor.character} name={actor.name} />
             </a>

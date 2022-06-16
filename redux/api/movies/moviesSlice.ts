@@ -21,11 +21,18 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       //   voteAverage: response?.data.vote_average,
       // }),
     }),
-    getCredits: builder.query<any, any>({
+    getCredits: builder.query<any, number>({
       query: (movieId: number) => handleUrl(`movie/${movieId}/credits`),
+    }),
+    getCredit: builder.query<any, any>({
+      query: (creditId: string) => handleUrl(`/credit/${creditId}`),
     }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMovieQuery, useGetCreditsQuery } =
-  extendedApiSlice;
+export const {
+  useGetMoviesQuery,
+  useGetMovieQuery,
+  useGetCreditsQuery,
+  useGetCreditQuery,
+} = extendedApiSlice;
