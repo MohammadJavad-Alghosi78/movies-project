@@ -1,0 +1,6 @@
+@import "styles/UI/variables.scss";
+@import "styles/UI/mixins.scss";
+
+.watchlist_wrapper {
+  @include responsive-wrapper;
+}

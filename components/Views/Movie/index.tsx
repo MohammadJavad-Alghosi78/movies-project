@@ -16,6 +16,7 @@ import Button from "@/components/shared/Button";
 import ActorCard from "./ActorCard";
 // Styles
 import classes from "./style.module.scss";
+import { useAddMovieToWatchListMutation } from "@/redux/api/watchlist/watchlistSlice";
 
 const MovieView = () => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const MovieView = () => {
     data: movie,
   } = useGetMovieQuery(Number(router.query.movieId));
   const { data: actors } = useGetCreditsQuery(Number(router.query.movieId));
-  console.log(actors);
+  const [addMovieToWatchList] = useAddMovieToWatchListMutation();
 
   if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1>An error has been occured</h1>;
@@ -33,7 +34,18 @@ const MovieView = () => {
     <>
       <Box>
         <h3>{movie?.original_title}</h3>
-        <Button styles={{ width: "200px" }}>Add to my watchlist</Button>
+        <Button
+          styles={{ width: "200px" }}
+          onClick={() =>
+            addMovieToWatchList({
+              media_type: "movie",
+              media_id: String(movie?.id),
+              watchlist: true,
+            })
+          }
+        >
+          Add to my watchlist
+        </Button>
         <h4>{movie?.overview}</h4>
         <div className={classes.genre_wrapper}>
           <span>Genres:</span>
