@@ -7,4 +7,5 @@ export type TextFieldPropsTypes = {
   id?: string;
   type?: string;
   hasBorder?: boolean;
+  onClick?: any;
 };
