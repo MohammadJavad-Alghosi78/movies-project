@@ -7,23 +7,23 @@ import {
 
 const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
 
-const handleWatchListUrl = (account_id: number) =>
-  `/account/${account_id}/watchlist/movies?api_key=${API_KEY}&session_id=${"test"}`;
+const handleWatchListUrl = () =>
+  `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`;
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getWatchList: builder.query<any, any>({
+    getWatchList: builder.query<any, void>({
       // Review for type and parameters
-      query: () => handleWatchListUrl(1),
+      query: () => handleWatchListUrl(),
     }),
     addMovieToWatchList: builder.mutation<
       MovieToWatchListResponseType,
-      MovieToWatchListType
+      MovieDataType
     >({
-      query: ({ account_id, movieData }) => {
+      query: (movieData) => {
         const { media_type, media_id, watchlist }: MovieDataType = movieData;
         return {
-          url: `/account/${account_id}/watchlist?api_key=${API_KEY}`,
+          url: `/account/${process.env.ACCOUNT_ID}/watchlist?api_key=${API_KEY}`,
           method: "POST",
           body: {
             media_type,
@@ -51,4 +51,5 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetWatchListQuery } = extendedApiSlice;
+export const { useGetWatchListQuery, useAddMovieToWatchListMutation } =
+  extendedApiSlice;
