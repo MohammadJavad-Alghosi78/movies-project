@@ -12,6 +12,7 @@ const TextField = ({
   id,
   type = "text",
   hasBorder = false,
+  onClick,
 }: TextFieldPropsTypes): JSX.Element => {
   const handleClassName = () => {
     if (hasBorder) return classes["text_field_bordered"];

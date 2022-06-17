@@ -7,8 +7,12 @@ import TextField from "../../TextFiled";
 import Button from "../../Button";
 // Hooks
 import useAuth from "@/hooks/useAuth";
+// Hooks
+import { useDispatch } from "react-redux";
 // Types
-import { HeaderType } from "./types";
+// import { HeaderType } from "./types";
+// Actions
+import { changeSearchTerm } from "@/redux/search/searchSlice";
 // Styles
 import classes from "./style.module.scss";
 // Constants
@@ -16,6 +20,7 @@ import headerConstants from "./constants";
 
 const Header = (): JSX.Element => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const { removeToken } = useAuth();
   const [movie, setMovie] = useState("");
@@ -28,6 +33,10 @@ const Header = (): JSX.Element => {
       router.push("/login");
     }
   };
+
+  useEffect(() => {
+    dispatch(changeSearchTerm(movie));
+  }, [movie]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -48,6 +57,7 @@ const Header = (): JSX.Element => {
           handleChange={(e: React.FormEvent<HTMLInputElement>) =>
             setMovie(e.currentTarget.value)
           }
+          onClick={() => router.push(`/search/?/`)}
         />
       </div>
       <div className={classes.right_section}>

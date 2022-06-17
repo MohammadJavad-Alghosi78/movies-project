@@ -12,3 +12,5 @@ const useDebounce = (value: string, delay: number = 5000): string => {
 
   return debouncedValue;
 };
+
+export default useDebounce;
