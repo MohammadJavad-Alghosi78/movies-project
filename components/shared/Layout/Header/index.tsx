@@ -40,15 +40,6 @@ const Header = (): JSX.Element => {
     dispatch(changeSearchTerm(e.currentTarget.value));
     if (movie && searchTerm) router.push(`/search/${searchTerm}`);
     else router.push("/");
-    // new Promise((resolve) => {
-    //   dispatch(changeSearchTerm(e.currentTarget.value));
-    //   setMovie(e.currentTarget.value);
-    //   resolve(e.currentTarget.value);
-    // }).then((searchTerm) => {
-    //   dispatch(changeSearchTerm(searchTerm));
-    //   if (movie && searchTerm) router.push(`/search/${searchTerm}`);
-    //   else router.push("/");
-    // });
   };
 
   useEffect(() => {
@@ -63,7 +54,6 @@ const Header = (): JSX.Element => {
       setIsLogin(false);
     }
   }, []);
-  // (e: React.FormEvent<HTMLInputElement>) => setMovie(e.currentTarget.value);
 
   // JSX
   return (

@@ -17,6 +17,7 @@ const LoginView = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (email === EMAIL && password === PASSWORD) {
+      // should use Redux for handling change of isLogin flag in header cp
       localStorage.setItem("token", "abcdefgh");
       router.replace("/");
     }
