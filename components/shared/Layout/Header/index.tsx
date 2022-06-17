@@ -34,6 +34,23 @@ const Header = (): JSX.Element => {
     }
   };
 
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const searchTerm = e.currentTarget.value;
+    setMovie(searchTerm);
+    dispatch(changeSearchTerm(e.currentTarget.value));
+    if (movie && searchTerm) router.push(`/search/${searchTerm}`);
+    else router.push("/");
+    // new Promise((resolve) => {
+    //   dispatch(changeSearchTerm(e.currentTarget.value));
+    //   setMovie(e.currentTarget.value);
+    //   resolve(e.currentTarget.value);
+    // }).then((searchTerm) => {
+    //   dispatch(changeSearchTerm(searchTerm));
+    //   if (movie && searchTerm) router.push(`/search/${searchTerm}`);
+    //   else router.push("/");
+    // });
+  };
+
   useEffect(() => {
     dispatch(changeSearchTerm(movie));
   }, [movie]);
@@ -46,6 +63,7 @@ const Header = (): JSX.Element => {
       setIsLogin(false);
     }
   }, []);
+  // (e: React.FormEvent<HTMLInputElement>) => setMovie(e.currentTarget.value);
 
   // JSX
   return (
@@ -54,9 +72,7 @@ const Header = (): JSX.Element => {
         <TextField
           value={movie}
           placeholder={headerConstants.placeholder}
-          handleChange={(e: React.FormEvent<HTMLInputElement>) =>
-            setMovie(e.currentTarget.value)
-          }
+          handleChange={handleChange}
           onClick={() => router.push(`/search/?/`)}
         />
       </div>
