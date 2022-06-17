@@ -9,6 +9,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getMoviesBysearch: builder.query<any, string>({
       query: (title = "") => handleUrl("/search/movie", title),
+      providesTags: [{ type: "SearchMovies", id: "LIST" }],
     }),
   }),
 });

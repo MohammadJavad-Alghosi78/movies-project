@@ -9,6 +9,22 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getMovies: builder.query<moviesType, void>({
       query: () => handleUrl("/movie/popular"),
+      // Why TypeScript Error
+      providesTags: (response) => {
+        const data = response
+          ? [
+              ...response?.results.map((movie) => {
+                console.log(movie);
+                return {
+                  type: "Movies" as const,
+                  id: movie.id,
+                };
+              }),
+              "Movies",
+            ]
+          : [{ type: "Movies", id: "LIST" }];
+        return data;
+      },
     }),
     getMovie: builder.query<movieType, number>({
       query: (movieId: number) => handleUrl(`movie/${movieId}`),
@@ -20,12 +36,15 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       //   genres: response?.data.genres,
       //   voteAverage: response?.data.vote_average,
       // }),
+      providesTags: ["Movie"],
     }),
     getCredits: builder.query<any, number>({
       query: (movieId: number) => handleUrl(`movie/${movieId}/credits`),
+      providesTags: ["Credits"],
     }),
     getCredit: builder.query<any, any>({
       query: (creditId: string) => handleUrl(`/credit/${creditId}`),
+      providesTags: ["Credit"],
     }),
   }),
 });
