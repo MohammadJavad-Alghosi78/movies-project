@@ -25,7 +25,6 @@ const MovieView = () => {
     isError,
     data: movie,
   } = useGetMovieQuery(Number(router.query.movieId));
-  console.log(movie);
   const { data: actors } = useGetCreditsQuery(Number(router.query.movieId));
   const [addMovieToWatchList] = useAddMovieToWatchListMutation();
 

@@ -33,23 +33,38 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         };
       },
     }),
-    deleteMovieFromWatchList: builder.mutation<any, any>({
-      query: () => "/no-thing",
-      async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
-        const patchResult = dispatch(
-          extendedApiSlice.util.updateQueryData("getWatchList", id, (draft) => {
-            Object.assign(draft, patch);
-          })
+    deleteMovieFromWatchList: builder.mutation<
+      any,
+      { movieId: string | number }
+    >({
+      query: () => ({
+        url: `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`,
+        method: "DELETE",
+        body: {},
+      }),
+      onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
+        const result = dispatch(
+          extendedApiSlice.util.updateQueryData(
+            "getWatchList",
+            undefined,
+            (data) => {
+              console.log("test", movieId, data);
+            }
+          )
         );
         try {
-          await queryFulfilled;
+          queryFulfilled;
         } catch {
-          patchResult.undo();
+          console.log("An Error Has Been Occured!");
+          // patchResult.undo();
         }
       },
     }),
   }),
 });
 
-export const { useGetWatchListQuery, useAddMovieToWatchListMutation } =
-  extendedApiSlice;
+export const {
+  useGetWatchListQuery,
+  useAddMovieToWatchListMutation,
+  useDeleteMovieFromWatchListMutation,
+} = extendedApiSlice;

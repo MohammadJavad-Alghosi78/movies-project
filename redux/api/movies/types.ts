@@ -14,6 +14,7 @@ export type movieType = {
   vote_average?: number;
   vote_count?: number;
   genres?: { id: number; name: string }[] | any;
+  movieId?: number | string;
 };
 
 export type moviesType = {
