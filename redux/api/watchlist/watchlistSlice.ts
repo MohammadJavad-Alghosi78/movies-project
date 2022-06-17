@@ -15,6 +15,20 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     getWatchList: builder.query<any, void>({
       // Review for type and parameters
       query: () => handleWatchListUrl(),
+      // providesTags: [{ type: "Watchlist", id: "LIST" }],
+      providesTags: (response) => {
+        const data = response
+          ? [
+              ...response.results.map((movies: any) => {
+                return {
+                  type: "Watchlist" as const,
+                  id: movies.id,
+                };
+              }),
+            ]
+          : [{ type: "Watchlist", id: "LIST" }];
+        return data;
+      },
     }),
     addMovieToWatchList: builder.mutation<
       MovieToWatchListResponseType,
@@ -32,6 +46,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           },
         };
       },
+      invalidatesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
     deleteMovieFromWatchList: builder.mutation<
       any,
@@ -42,12 +57,14 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         method: "DELETE",
         body: {},
       }),
+      // Optimistic cach not working!
       onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
         const result = dispatch(
           extendedApiSlice.util.updateQueryData(
             "getWatchList",
             undefined,
             (data) => {
+              // Returns Proxy object!
               console.log("test", movieId, data);
             }
           )
