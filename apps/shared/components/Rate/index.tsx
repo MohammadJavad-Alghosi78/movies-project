@@ -1,11 +1,11 @@
 // node_modules
 import React from "react";
-// Types
-import { RateType } from "./types";
-// Constants(Enum)
-import Place from "./constants";
-// Styles
-import classes from "./style.module.scss";
+// types
+import { RateType } from "apps/shared/types/RateType";
+// constants
+import { Place } from "apps/shared/core/constants";
+// styles
+import classes from "apps/shared/styles/rate/style.module.scss";
 
 const Rate = ({ rate, place = "top-right" }: RateType): JSX.Element => {
   const handleClassName = () => {

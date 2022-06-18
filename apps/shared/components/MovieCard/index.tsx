@@ -1,19 +1,20 @@
 // node_modules
 import React from "react";
 import Link from "next/link";
-// Types
-import { movieType } from "@/redux/api/movies/types";
-// Styles
-import classes from "./style.module.scss";
-import Rate from "../Rate";
+// components
+import Rate from "apps/shared/components/Rate";
+// types
+// Refactor: change the directory of MovieType
+import { MovieType } from "@/apps/Home/types/MovieType";
+// styles
+import classes from "apps/shared/styles/movieCard/style.module.scss";
 
 const MovieCard = ({
   id,
   original_title,
   overview,
   vote_average,
-}: movieType): JSX.Element => {
-  // JSX
+}: MovieType): JSX.Element => {
   return (
     <Link href={`/movies/${id}`} passHref>
       <div className={classes.card}>

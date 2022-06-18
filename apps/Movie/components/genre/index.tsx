@@ -1,9 +1,9 @@
 // node_modules
 import React from "react";
-// Types
-import { GenreType } from "./type";
-// Styles
-import classes from "./style.module.scss";
+// types
+import { GenreType } from "apps/Movie/types/GenreType";
+// styles
+import classes from "apps/Movie/styles/genre/style.module.scss";
 
 const Genre = ({ label }: GenreType): JSX.Element => {
   return <span className={classes.genre_wrapper}>{label}</span>;

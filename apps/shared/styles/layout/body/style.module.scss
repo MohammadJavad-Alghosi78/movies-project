@@ -1,6 +1,7 @@
 @import "apps/shared/styles/variables.scss";
 @import "apps/shared/styles/mixins.scss";
 
-.movies_wrapper {
-  @include responsive-wrapper;
+.body_wrapper {
+  padding: $page-padding;
+  min-height: calc(100vh - 72px);
 }

@@ -1,18 +1,19 @@
 // node_modules
 import React from "react";
-// Hooks
-import { useDeleteMovieFromWatchListMutation } from "@/apps/WatchList/core/redux/watchlistSlice";
-// Types
-import { movieType } from "@/redux/api/movies/types";
+// api
+import { useDeleteMovieFromWatchListMutation } from "apps/WatchList/core/redux/watchlistSlice";
+// components
+import Button from "apps/shared/components/Button";
+// Types Refactor: change the directory of MovieType
+import { MovieType } from "@/apps/Home/types/MovieType";
 // Styles
-import classes from "./style.module.scss";
-import Button from "@/apps/shared/Button";
+import classes from "apps/WatchList/styles/watchlistMovieCard/style.module.scss";
 
 const WatchListMovieCard = ({
   movieId = "1",
   original_title,
   overview,
-}: movieType): JSX.Element => {
+}: MovieType): JSX.Element => {
   const [removeMovieFromWatchList] = useDeleteMovieFromWatchListMutation();
   return (
     <div className={classes.watchlist_movie_card}>

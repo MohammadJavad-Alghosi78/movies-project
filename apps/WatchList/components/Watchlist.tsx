@@ -1,15 +1,14 @@
 // node_modules
 import React from "react";
-// Hooks
-import { useGetWatchListQuery } from "@/apps/WatchList/core/redux/watchlistSlice";
+// api
+import { useGetWatchListQuery } from "apps/WatchList/core/redux/watchlistSlice";
 // types
-import { movieType } from "@/redux/api/movies/types";
+import { MovieType } from "apps/Home/types/MovieType";
 // components
-import WatchListMovieCard from "./WatchListMovieCard";
-// Styles
-import classes from "./style.module.scss";
+import WatchListMovieCard from "apps/WatchList/components/WatchListMovieCard";
+// styles
+import classes from "apps/WatchList/styles/watchlistMovieCard/style.module.scss";
 
-// Import lowwercase
 // Create MovielIst component and use it in wathclist and home page router ***
 const WatchListView = () => {
   const { isLoading, isError, data: movies } = useGetWatchListQuery();
@@ -17,7 +16,7 @@ const WatchListView = () => {
   if (isError) return <h3>An error has been occured</h3>;
   return (
     <div className={classes.watchlist_wrapper}>
-      {movies.results.map((movie: movieType) => (
+      {movies.results.map((movie: MovieType) => (
         <WatchListMovieCard
           key={movie.id}
           movieId={movie.id}

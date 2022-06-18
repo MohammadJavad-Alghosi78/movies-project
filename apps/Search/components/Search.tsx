@@ -1,17 +1,19 @@
 // node_modules
 import React from "react";
-// Hooks
-import useDebounce from "@/apps/shared/core/modules/hooks/useDebounce";
 import { useSelector } from "react-redux";
-import { useGetMoviesBysearchQuery } from "@/apps/Search/core/redux/searchMoviesSlice";
-// Components
-import MovieCard from "@/apps/shared/MovieCard";
-// Types
-import { MovieType } from "@/apps/Home/types/MovieType";
-// Styles
-import classes from "./style.module.scss";
+// api
+import { useGetMoviesBysearchQuery } from "apps/Search/core/redux/searchMoviesSlice";
+// custom hooks
+import useDebounce from "apps/shared/core/modules/hooks/useDebounce";
+// components
+import MovieCard from "apps/shared/components/MovieCard";
+// types  Refactor: change directory of this type
+import { MovieType } from "apps/Home/types/MovieType";
+// styles
+import classes from "apps/Search/styles/style.module.scss";
 
 const SearchView = (): JSX.Element => {
+  // Refactor: write a type for state
   const searchTerm = useSelector((state: any) => state.search.searchTerm);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   console.log("***********", searchTerm, debouncedSearchTerm);
@@ -20,7 +22,6 @@ const SearchView = (): JSX.Element => {
   if (isLoading) return <h1>Loading ...</h1>;
   else if (isFetching) return <h1>Fetching ...</h1>;
   if (data?.results.length === 0) return <h1>No movie</h1>;
-  //   else if (isError) return <h1>An error has been occured</h1>;
   return (
     <div className={classes.movies_wrapper}>
       {data?.results?.map((movie: MovieType) => (

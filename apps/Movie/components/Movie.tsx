@@ -2,21 +2,21 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-// Types
-import { MovieGenreType } from "../types/type";
-// Hooks
+// api
 import {
   useGetCreditsQuery,
   useGetMovieQuery,
-} from "@/apps/Home/core/redux/moviesSlice";
-// Components
-import Genre from "./genre";
-import Box from "@/apps/shared/components/Box";
-import Button from "apps/shared/components/Button";
-import ActorCard from "./ActorCard";
-// Styles
-import classes from "./style.module.scss";
+} from "apps/Home/core/redux/moviesSlice";
 import { useAddMovieToWatchListMutation } from "@/apps/WatchList/core/redux/watchlistSlice";
+// components
+import Genre from "apps/Movie/components/genre";
+import ActorCard from "apps/Movie/components/ActorCard";
+import Box from "apps/shared/components/Box";
+import Button from "apps/shared/components/Button";
+// types
+import { MovieGenreType } from "apps/Movie/types/MovieGenreType";
+// styles
+import classes from "apps/Movie/styles/style.module.scss";
 
 const MovieView = () => {
   const router = useRouter();
