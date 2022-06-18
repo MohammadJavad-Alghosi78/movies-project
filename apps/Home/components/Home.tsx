@@ -1,0 +1,25 @@
+// node_modules
+import React from "react";
+// RTK Query
+import { useGetMoviesQuery } from "@/apps/Home/core/redux/moviesSlice";
+// Components
+import MovieCard from "../../shared/MovieCard";
+// Types
+import { movieType } from "@/redux/api/movies/types";
+// Styles
+import classes from "./style.module.scss";
+
+const HomeView = () => {
+  const { isError, isLoading, data } = useGetMoviesQuery();
+  if (isLoading) return <h1>Loading ...</h1>;
+  else if (isError) return <h1>An error has been occured</h1>;
+  return (
+    <div className={classes.movies_wrapper}>
+      {data?.results?.map((movie: movieType) => (
+        <MovieCard key={movie.id} {...movie} />
+      ))}
+    </div>
+  );
+};
+
+export default HomeView;
