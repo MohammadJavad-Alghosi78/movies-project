@@ -1,10 +1,10 @@
 // node_modules
 import { ReactElement } from "react";
 // Components
-import Main from "@/apps/Home/components/Home";
-import Layout from "@/apps/shared/Layout";
+import HomeView from "apps/Home/components/Home";
+import Layout from "apps/shared/components/Layout";
 
-const Component = (): JSX.Element => <Main />;
+const Component = (): JSX.Element => <HomeView />;
 
 Component.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 

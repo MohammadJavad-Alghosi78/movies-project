@@ -2,7 +2,7 @@
 import { ReactElement } from "react";
 // Components
 import Layout from "apps/shared/components/Layout";
-import SearchView from "apps/Search/components";
+import SearchView from "@/apps/Search/components/Search";
 
 const Component = (): JSX.Element => <SearchView />;
 

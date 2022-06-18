@@ -1,9 +1,9 @@
-import { apiSlice } from "../../../shared/core/redux/api/apiSlice";
+import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 import {
   MovieDataType,
   MovieToWatchListResponseType,
   MovieToWatchListType,
-} from "../../../../redux/api/watchlist/types";
+} from "apps/WatchList/types/WatchListTypes";
 
 const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
 

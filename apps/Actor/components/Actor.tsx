@@ -1,8 +1,8 @@
 // node_modules
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
-// Hooks
-import { useGetCreditQuery } from "@/apps/Home/core/redux/moviesSlice";
+// api
+import { useGetCreditQuery } from "apps/Home/core/redux/moviesSlice";
 
 const ActorView = (): JSX.Element => {
   const router = useRouter();

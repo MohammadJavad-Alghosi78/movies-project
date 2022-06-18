@@ -5,7 +5,7 @@ import { ComponentType, ReactElement, ReactNode } from "react";
 import { Provider } from "react-redux";
 import { store } from "../apps/shared/core/redux/api/store";
 // Styles
-import "../styles/globals.css";
+import "apps/shared/styles/globals.css";
 
 import { NextPage } from "next";
 

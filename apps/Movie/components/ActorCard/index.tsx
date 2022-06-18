@@ -1,11 +1,11 @@
 // node_modules
 import React from "react";
-// Types
-import { actorType } from "./types";
-// Styles
-import classes from "./style.module.scss";
+// types
+import { ActorType } from "apps/Movie/types/ActorType";
+// styles
+import classes from "apps/Movie/styles/actorCard/style.module.scss";
 
-const ActorCard = ({ character, name }: actorType): JSX.Element => {
+const ActorCard = ({ character, name }: ActorType): JSX.Element => {
   return (
     <div className={classes.actor_card_wrapper}>
       <h3>{character}</h3>

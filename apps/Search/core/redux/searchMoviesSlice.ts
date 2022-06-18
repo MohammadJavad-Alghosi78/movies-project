@@ -1,5 +1,6 @@
-import { apiSlice } from "../../../shared/core/redux/api/apiSlice";
+import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 
+// Refactor: change directory of this api_key in shared/constants ...
 const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
 
 const handleUrl = (baseUrl: string, title: string): string => {

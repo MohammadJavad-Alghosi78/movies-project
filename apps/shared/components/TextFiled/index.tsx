@@ -1,9 +1,9 @@
 // node_modules
 import React from "react";
-// Types
-import { TextFieldPropsTypes } from "./types";
-// Styles
-import classes from "./styles.module.scss";
+// types
+import { TextFieldPropsTypes } from "apps/shared/types/textFieldType";
+// styles
+import classes from "apps/shared/styles/textField/style.module.scss";
 
 const TextField = ({
   value,

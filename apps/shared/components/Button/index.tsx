@@ -1,11 +1,11 @@
 // node_modules
 import React from "react";
-// Types
-import { ButtonPropsType } from "./types";
-// Constants
-import Variant from "./constants";
-// Styles
-import classes from "./styles.module.scss";
+// types
+import { ButtonPropsType } from "apps/shared/types/ButtonType";
+// constants
+import { Variant } from "apps/shared/core/constants";
+// styles
+import classes from "apps/shared/styles/button/style.module.scss";
 
 const Button = ({
   children,
@@ -24,9 +24,13 @@ const Button = ({
         return "";
     }
   };
-  // JSX
   return (
-    <button className={handleClassName()} onClick={onClick} style={styles}>
+    <button
+      className={handleClassName()}
+      type={type}
+      onClick={onClick}
+      style={styles}
+    >
       {children}
     </button>
   );

@@ -1,13 +1,13 @@
 // node_modules
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-// Components
-import TextField from "@/apps/shared/TextFiled";
-// Constants
+// components
+import TextField from "apps/shared/components/TextFiled";
+import Button from "apps/shared/components/Button";
+// constants
 import { EMAIL, PASSWORD } from "apps/Login/core/constants";
-// Styles
-import classes from "./styles.module.scss";
-import Button from "@/apps/shared/Button";
+// styles
+import classes from "apps/Login/styles/style.module.scss";
 
 const LoginView = () => {
   const router = useRouter();

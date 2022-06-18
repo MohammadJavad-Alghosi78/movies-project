@@ -1,10 +1,10 @@
 // node_modules
 import React from "react";
-// Components
-import Header from "@/apps/shared/Layout/Header";
-import Body from "@/apps/shared/Layout/Body";
-// Styles
-import classes from "./styles.module.scss";
+// components
+import Header from "apps/shared/components/Layout/Header";
+import Body from "apps/shared/components/Layout/Body";
+// styles
+import classes from "apps/shared/styles/layout/style.module.scss";
 
 const Layout = ({
   children,

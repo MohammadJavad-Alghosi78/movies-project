@@ -1,5 +1,6 @@
-import { apiSlice } from "../../../shared/core/redux/api/apiSlice";
-import { moviesType, movieType } from "../../../../redux/api/movies/types";
+import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
+import { MovieType } from "apps/Home/types/MovieType";
+import { MoviesType } from "apps/Home/types/MoviesType";
 
 const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
 
@@ -7,13 +8,13 @@ const handleUrl = (baseUrl: string) => `${baseUrl}?api_key=${API_KEY}`;
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getMovies: builder.query<moviesType, void>({
+    getMovies: builder.query<MoviesType, void>({
       query: () => handleUrl("/movie/popular"),
-      // Remove all provides tags from all projecwt ******
+      // Remove all provides tags from all project ******
       providesTags: (response) =>
         response
           ? [
-              ...response?.results.map((movie) => {
+              ...response?.results.map((movie: MovieType) => {
                 return {
                   type: "Movie" as const,
                   id: movie.id,
@@ -24,7 +25,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           : [{ type: "Movies", id: "LIST" }],
     }),
     // Capital word : all types ***
-    getMovie: builder.query<movieType, number>({
+    getMovie: builder.query<MovieType, number>({
       query: (movieId: number) => handleUrl(`movie/${movieId}`),
       // What is right type of response?
       transformResponse: (response: any) => ({
