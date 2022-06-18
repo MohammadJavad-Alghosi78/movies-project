@@ -1,8 +1,8 @@
 // node_modules
 import { ReactElement } from "react";
 // Components
-import SearchView from "@/components/Views/SearchView";
-import Layout from "@/components/shared/Layout";
+import Layout from "apps/shared/components/Layout";
+import SearchView from "apps/Search/components";
 
 const Component = (): JSX.Element => <SearchView />;
 

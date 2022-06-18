@@ -1,13 +1,19 @@
 // node_modules
 import type { AppProps } from "next/app";
-import { ReactNode } from "react";
+import { ComponentType, ReactElement, ReactNode } from "react";
 // State managent(s)
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
-// Config
-import { Page } from "@/config/page";
+import { store } from "../apps/shared/core/redux/api/store";
 // Styles
 import "../styles/globals.css";
+
+import { NextPage } from "next";
+
+export type Page<P = {}> = NextPage<P> & {
+  // You can disable whichever y,sou don't need
+  getLayout?: (page: ReactElement) => ReactNode;
+  layout?: ComponentType;
+};
 
 type Props = AppProps & {
   Component: Page;

@@ -1,7 +1,7 @@
 // node_modules
 import React, { ReactElement } from "react";
 // Components
-import Layout from "@/components/shared/Layout";
+import Layout from "@/apps/shared/Layout";
 import LoginView from "@/components/Views/Login";
 
 const Component = () => <LoginView />;
