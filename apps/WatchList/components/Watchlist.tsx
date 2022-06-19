@@ -16,7 +16,7 @@ const WatchListView = () => {
   if (isError) return <h3>An error has been occured</h3>;
   return (
     <div className={classes.watchlist_wrapper}>
-      {movies?.results.map((movie: MovieType) => (
+      {movies?.results?.map((movie: MovieType) => (
         <WatchListMovieCard
           key={movie.id}
           movieId={movie.id}

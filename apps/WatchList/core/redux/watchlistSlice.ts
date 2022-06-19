@@ -41,7 +41,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       { movieId: string | number }
     >({
       query: ({ movieId }) => ({
-        url: "https://jsonplaceholder.typicode.com/posts/1",
+        url: `/posts/${movieId}`,
         method: RequestMethods.DELETE,
       }),
       // Optimistic update cach not working!
@@ -51,10 +51,9 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
             "getWatchList",
             undefined,
             (data) => {
-              const newWatchlist = data.results.filter(
+              data.results = data?.results?.filter(
                 (movie: MovieType) => movie.id !== movieId
               );
-              Object.assign(data, newWatchlist);
             }
           )
         );
