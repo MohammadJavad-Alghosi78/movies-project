@@ -25,8 +25,13 @@ const SearchView = (): JSX.Element => {
     }
   }, [router.query.searchTerm]);
 
-  const { data, isLoading, isFetching } =
-    useGetMoviesBysearchQuery(debouncedSearchTerm);
+  const { data, isLoading, isFetching } = useGetMoviesBysearchQuery(
+    debouncedSearchTerm,
+    {
+      skip: debouncedSearchTerm.length === 0,
+    }
+  );
+
   if (isLoading) return <h1>Loading ...</h1>;
   else if (isFetching) return <h1>Fetching ...</h1>;
   if (data && data.results && !data.results.length) return <h1>No movie</h1>;
