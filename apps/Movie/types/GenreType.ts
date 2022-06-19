@@ -1,3 +1,3 @@
 export type GenreType = {
-  label: string;
+    label: string;
 };

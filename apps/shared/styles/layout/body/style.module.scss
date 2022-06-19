@@ -2,6 +2,6 @@
 @import "apps/shared/styles/mixins.scss";
 
 .body_wrapper {
-  padding: $page-padding;
-  min-height: calc(100vh - 72px);
+    padding: $page-padding;
+    min-height: calc(100vh - 72px);
 }

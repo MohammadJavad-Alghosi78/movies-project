@@ -6,7 +6,7 @@ import { BoxType } from "apps/shared/types/BoxType";
 import classes from "apps/shared/styles/box/style.module.scss";
 
 const Box = ({ children }: BoxType): JSX.Element => {
-  return <div className={classes.box_wrapper}>{children}</div>;
+    return <div className={classes.box_wrapper}>{children}</div>;
 };
 
 export default Box;

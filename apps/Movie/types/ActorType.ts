@@ -1,4 +1,4 @@
 export type ActorType = {
-  character: string;
-  name: string;
+    character: string;
+    name: string;
 };

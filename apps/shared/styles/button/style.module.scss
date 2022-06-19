@@ -2,29 +2,29 @@
 @import "apps/shared/styles/mixins.scss";
 
 @mixin default-button {
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  background-color: $red;
-  color: $white;
-  padding: 8px;
-  width: 80px;
-  height: 34px;
-  cursor: pointer;
-  text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: $red;
+    color: $white;
+    padding: 8px;
+    width: 80px;
+    height: 34px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .button_primary {
-  @include default-button;
-  background-color: $red;
+    @include default-button;
+    background-color: $red;
 }
 
 .button_danger {
-  @include default-button;
-  background-color: $yellow;
-  color: $black;
+    @include default-button;
+    background-color: $yellow;
+    color: $black;
 }

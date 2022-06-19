@@ -10,26 +10,26 @@ import { MovieType } from "apps/shared/types/MovieType";
 import classes from "apps/WatchList/styles/watchlistMovieCard/style.module.scss";
 
 const WatchListMovieCard = ({
-  movieId = "1",
-  original_title,
-  overview,
+    movieId = "1",
+    original_title,
+    overview,
 }: MovieType): JSX.Element => {
-  const [removeMovieFromWatchList] = useDeleteMovieFromWatchListMutation();
-  return (
-    <div className={classes.watchlist_movie_card}>
-      <h3>{original_title}</h3>
-      <h5>{overview}</h5>
-      <Button
-        variant="danger"
-        styles={{ width: "150px" }}
-        onClick={() => {
-          removeMovieFromWatchList({ movieId });
-        }}
-      >
-        Remove from list
-      </Button>
-    </div>
-  );
+    const [removeMovieFromWatchList] = useDeleteMovieFromWatchListMutation();
+    return (
+        <div className={classes.watchlist_movie_card}>
+            <h3>{original_title}</h3>
+            <h5>{overview}</h5>
+            <Button
+                variant="danger"
+                styles={{ width: "150px" }}
+                onClick={() => {
+                    removeMovieFromWatchList({ movieId });
+                }}
+            >
+                Remove from list
+            </Button>
+        </div>
+    );
 };
 
 export default WatchListMovieCard;

@@ -7,14 +7,14 @@ import { CreditType } from "apps/Movie/types/CreditType";
 import handleUrl from "apps/Movie/core/modules/requestUrl";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
-  endpoints: (builder) => ({
-    getMovie: builder.query<MovieType, number>({
-      query: (movieId: number) => handleUrl(`movie/${movieId}`),
+    endpoints: (builder) => ({
+        getMovie: builder.query<MovieType, number>({
+            query: (movieId: number) => handleUrl(`movie/${movieId}`),
+        }),
+        getCredits: builder.query<CreditType, number>({
+            query: (movieId: number) => handleUrl(`movie/${movieId}/credits`),
+        }),
     }),
-    getCredits: builder.query<CreditType, number>({
-      query: (movieId: number) => handleUrl(`movie/${movieId}/credits`),
-    }),
-  }),
 });
 
 export const { useGetMovieQuery, useGetCreditsQuery } = extendedApiSlice;
