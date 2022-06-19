@@ -1,38 +1,25 @@
+// main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
-import {
-  MovieDataType,
-  MovieToWatchListResponseType,
-  MovieToWatchListType,
-} from "apps/WatchList/types/WatchListTypes";
-
-const handleWatchListUrl = () =>
-  `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`;
+// types
+import { MoviesType } from "apps/shared/types/MoviesType";
+import { MovieDataType } from "apps/WatchList/types/WatchListTypes";
+// helper
+import handleUrl from "apps/WatchList/core/modules/requestUrl";
+// constants
+import { RequestMethods } from "apps/shared/core/constants";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getWatchList: builder.query<any, void>({
-      // Review for type and parameters
-      query: () => handleWatchListUrl(),
-      // providesTags: [{ type: "Watchlist", id: "LIST" }],
-      providesTags: (response) => {
-        const data = response
-          ? [
-              ...response.results.map((movies: any) => {
-                return {
-                  type: "Watchlist" as const,
-                  id: movies.id,
-                };
-              }),
-            ]
-          : [{ type: "Watchlist", id: "LIST" }];
-        return data;
-      },
+    getWatchList: builder.query<MoviesType, void>({
+      query: () => handleUrl(RequestMethods.GET),
+      // Question:
+      // Should not be set a providesTags? (we have a POST request here)
     }),
-    addMovieToWatchList: builder.mutation<any, any>({
+    addMovieToWatchList: builder.mutation<any, MovieDataType>({
       query: (movieData) => {
         const { media_type, media_id, watchlist }: MovieDataType = movieData;
         return {
-          url: `/account/${process.env.ACCOUNT_ID}/watchlist?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`,
+          url: handleUrl(RequestMethods.POST),
           method: "POST",
           body: {
             media_type,
@@ -41,15 +28,13 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           },
         };
       },
-      // Remove this invalidate
-      invalidatesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
     deleteMovieFromWatchList: builder.mutation<
       any,
       { movieId: string | number }
     >({
       query: () => ({
-        url: `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`,
+        url: handleUrl(),
         method: "DELETE",
         body: {},
       }),

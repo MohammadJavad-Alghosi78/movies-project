@@ -5,6 +5,13 @@ export const accountConstants = {
   accountId: process.env.accountId,
 };
 
+export enum RequestMethods {
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
+}
+
 // Button component
 export enum Variant {
   PRIMARY = "primary",

@@ -3,11 +3,11 @@ import React from "react";
 // api
 import { useGetWatchListQuery } from "apps/WatchList/core/redux/watchlistSlice";
 // types
-import { MovieType } from "apps/Home/types/MovieType";
+import { MovieType } from "apps/shared/types/MovieType";
 // components
 import WatchListMovieCard from "apps/WatchList/components/WatchListMovieCard";
 // styles
-import classes from "apps/WatchList/styles/watchlistMovieCard/style.module.scss";
+import classes from "apps/WatchList/styles/style.module.scss";
 
 // Create MovielIst component and use it in wathclist and home page router ***
 const WatchListView = () => {
@@ -16,7 +16,7 @@ const WatchListView = () => {
   if (isError) return <h3>An error has been occured</h3>;
   return (
     <div className={classes.watchlist_wrapper}>
-      {movies.results.map((movie: MovieType) => (
+      {movies?.results.map((movie: MovieType) => (
         <WatchListMovieCard
           key={movie.id}
           movieId={movie.id}
