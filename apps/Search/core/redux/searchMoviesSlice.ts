@@ -1,18 +1,14 @@
+// main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
-
-// Refactor: change directory of this api_key in shared/constants ...
-const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
-
-const handleUrl = (baseUrl: string, title: string): string => {
-  console.log("=========>", title);
-  return `${baseUrl}?api_key=${API_KEY}&query=${title}`;
-};
+// types
+import { MoviesType } from "apps/shared/types/MoviesType";
+// helper
+import handleUrl from "apps/Search/core/modules/requestUrl";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getMoviesBysearch: builder.query<any, string>({
+    getMoviesBysearch: builder.query<MoviesType, string>({
       query: (title = "") => handleUrl("/search/movie", title),
-      providesTags: [{ type: "SearchMovies", id: "LIST" }],
     }),
   }),
 });

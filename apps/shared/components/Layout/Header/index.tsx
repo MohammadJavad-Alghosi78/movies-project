@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
 // components
 import TextField from "../../TextFiled";
 import Button from "../../Button";
@@ -15,7 +14,6 @@ import classes from "apps/shared/styles/layout/header/style.module.scss";
 
 const Header = (): JSX.Element => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const { removeToken } = useAuth();
   const [movie, setMovie] = useState("");
@@ -34,18 +32,12 @@ const Header = (): JSX.Element => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const searchTerm = e.currentTarget.value;
     setMovie(searchTerm);
-    // Remove from redux and add to query string in url ***
-    // dispatch(changeSearchTerm(e.currentTarget.value));
     router.push(`/search/${e.currentTarget.value}`);
     router.query;
-    console.log("Header: ", searchTerm);
-    if (searchTerm) router.push(`/search/${searchTerm}`);
+    if (searchTerm.length > 0)
+      router.push(`/search/${searchTerm}`, undefined, { shallow: true });
     else router.push("/");
   };
-
-  // useEffect(() => {
-  //   dispatch(changeSearchTerm(movie));
-  // }, [movie]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
