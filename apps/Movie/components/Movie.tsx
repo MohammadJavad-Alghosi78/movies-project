@@ -6,8 +6,8 @@ import Link from "next/link";
 import {
   useGetCreditsQuery,
   useGetMovieQuery,
-} from "apps/Home/core/redux/moviesSlice";
-import { useAddMovieToWatchListMutation } from "@/apps/WatchList/core/redux/watchlistSlice";
+} from "apps/Movie/core/redux/movieSlice";
+import { useAddMovieToWatchListMutation } from "apps/WatchList/core/redux/watchlistSlice";
 // components
 import Genre from "apps/Movie/components/genre";
 import ActorCard from "apps/Movie/components/ActorCard";
@@ -26,6 +26,7 @@ const MovieView = () => {
     data: movie,
   } = useGetMovieQuery(Number(router.query.movieId));
   const { data: actors } = useGetCreditsQuery(Number(router.query.movieId));
+  console.log(actors);
   const [addMovieToWatchList] = useAddMovieToWatchListMutation();
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -61,6 +62,7 @@ const MovieView = () => {
         {actors?.cast.map((actor: any) => (
           // Why this link does not work when a tag is not exist?
           <Link
+            key={actor.id}
             href={`/movies/${router.query.movieId}/actor/${actor.credit_id}`}
           >
             <a>

@@ -1,3 +1,10 @@
+// Global
+export const accountConstants = {
+  apiKey: process.env.apiKey,
+  sessionId: process.env.sessionId,
+  accountId: process.env.accountId,
+};
+
 // Button component
 export enum Variant {
   PRIMARY = "primary",

@@ -1,8 +1,8 @@
 // node_modules
 import { ReactElement } from "react";
 // Components
-import Layout from "@/apps/shared/Layout";
-import ActorView from "@/components/Views/Actor";
+import Layout from "apps/shared/components/Layout";
+import ActorView from "apps/Actor/components/Actor";
 
 const Component = (): JSX.Element => <ActorView />;
 

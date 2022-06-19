@@ -2,21 +2,16 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// Components
+import { useDispatch } from "react-redux";
+// components
 import TextField from "../../TextFiled";
 import Button from "../../Button";
-// Hooks
-import useAuth from "@/apps/shared/core/modules/hooks/useAuth";
-// Hooks
-import { useDispatch } from "react-redux";
-// Types
-// import { HeaderType } from "./types";
-// Actions
-import { changeSearchTerm } from "@/redux/search/searchSlice";
-// Styles
-import classes from "./style.module.scss";
+// hooks
+import useAuth from "apps/shared/core/modules/hooks/useAuth";
 // Constants
-import headerConstants from "./constants";
+import { headerConstants } from "apps/shared/core/constants";
+// styles
+import classes from "apps/shared/styles/layout/header/style.module.scss";
 
 const Header = (): JSX.Element => {
   const router = useRouter();
@@ -40,15 +35,17 @@ const Header = (): JSX.Element => {
     const searchTerm = e.currentTarget.value;
     setMovie(searchTerm);
     // Remove from redux and add to query string in url ***
-    dispatch(changeSearchTerm(e.currentTarget.value));
+    // dispatch(changeSearchTerm(e.currentTarget.value));
+    router.push(`/search/${e.currentTarget.value}`);
+    router.query;
     console.log("Header: ", searchTerm);
     if (searchTerm) router.push(`/search/${searchTerm}`);
     else router.push("/");
   };
 
-  useEffect(() => {
-    dispatch(changeSearchTerm(movie));
-  }, [movie]);
+  // useEffect(() => {
+  //   dispatch(changeSearchTerm(movie));
+  // }, [movie]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
