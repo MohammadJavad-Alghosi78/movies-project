@@ -16,7 +16,7 @@ const Header = (): JSX.Element => {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const { removeToken } = useAuth();
-  const [movie, setMovie] = useState("");
+  const [movie, setMovie] = useState<string>("");
 
   const handleClick = () => {
     if (isLogin) {
@@ -27,8 +27,6 @@ const Header = (): JSX.Element => {
     }
   };
 
-  // Remove re-rendering and send two requests ***
-  // Set default url when refreshing ***
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const searchTerm = e.currentTarget.value;
     setMovie(searchTerm);
@@ -40,6 +38,9 @@ const Header = (): JSX.Element => {
   };
 
   useEffect(() => {
+    if (router.query.searchTerm) {
+      setMovie(String(router.query.searchTerm));
+    }
     const token = localStorage.getItem("token");
     if (token) {
       setIsLogin(true);
