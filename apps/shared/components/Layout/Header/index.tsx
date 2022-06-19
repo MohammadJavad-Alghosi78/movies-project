@@ -27,8 +27,6 @@ const Header = (): JSX.Element => {
     }
   };
 
-  // Remove re-rendering and send two requests ***
-  // Set default url when refreshing ***
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const searchTerm = e.currentTarget.value;
     setMovie(searchTerm);
@@ -40,6 +38,7 @@ const Header = (): JSX.Element => {
   };
 
   useEffect(() => {
+    setMovie(router.query.searchTerm);
     const token = localStorage.getItem("token");
     if (token) {
       setIsLogin(true);

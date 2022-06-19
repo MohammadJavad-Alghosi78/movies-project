@@ -20,8 +20,6 @@ const SearchView = (): JSX.Element => {
   useEffect(() => {
     if (router.query.searchTerm) {
       setSearchTerm(String(router.query.searchTerm));
-    } else {
-      router.push("/");
     }
   }, [router.query.searchTerm]);
 
