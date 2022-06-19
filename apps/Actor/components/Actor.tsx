@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // api
-import { useGetCreditQuery } from "apps/Actor/core/redux/actorSlices";
+import { useGetCreditQuery } from "apps/Actor/core/redux/actorSlice";
 
 const ActorView = (): JSX.Element => {
   const router = useRouter();

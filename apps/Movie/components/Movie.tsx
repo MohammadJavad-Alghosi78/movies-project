@@ -1,5 +1,5 @@
 // node_modules
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // api
@@ -20,6 +20,14 @@ import classes from "apps/Movie/styles/style.module.scss";
 
 const MovieView = (): JSX.Element => {
   const router = useRouter();
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) setIsLogin(true);
+    else setIsLogin(false);
+  }, []);
+
   // Question:
   // 1. Is there better way for preventing re-rendering?
   // 2. if let content; , we have type error in return of ActorView
@@ -38,18 +46,20 @@ const MovieView = (): JSX.Element => {
       <>
         <Box>
           <h3>{movie?.original_title}</h3>
-          <Button
-            styles={{ width: "200px" }}
-            onClick={() =>
-              addMovieToWatchList({
-                media_type: "movie",
-                media_id: String(movie?.id),
-                watchlist: true,
-              })
-            }
-          >
-            Add to my watchlist
-          </Button>
+          {isLogin && (
+            <Button
+              styles={{ width: "200px" }}
+              onClick={() =>
+                addMovieToWatchList({
+                  media_type: "movie",
+                  media_id: String(movie?.id),
+                  watchlist: true,
+                })
+              }
+            >
+              Add to my watchlist
+            </Button>
+          )}
           <h4>{movie?.overview}</h4>
           <div className={classes.genre_wrapper}>
             <span>Genres:</span>
