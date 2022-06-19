@@ -1,41 +1,32 @@
+// main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
+// types
+import { MoviesType } from "apps/shared/types/MoviesType";
+import { MovieType } from "apps/shared/types/MovieType";
 import {
+  AddToWatchlistResponseType,
   MovieDataType,
-  MovieToWatchListResponseType,
-  MovieToWatchListType,
 } from "apps/WatchList/types/WatchListTypes";
-
-const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
-
-const handleWatchListUrl = () =>
-  `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`;
+// helper
+import handleUrl from "apps/WatchList/core/modules/requestUrl";
+// constants
+import { RequestMethods } from "apps/shared/core/constants";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getWatchList: builder.query<any, void>({
-      // Review for type and parameters
-      query: () => handleWatchListUrl(),
-      // providesTags: [{ type: "Watchlist", id: "LIST" }],
-      providesTags: (response) => {
-        const data = response
-          ? [
-              ...response.results.map((movies: any) => {
-                return {
-                  type: "Watchlist" as const,
-                  id: movies.id,
-                };
-              }),
-            ]
-          : [{ type: "Watchlist", id: "LIST" }];
-        return data;
-      },
+    getWatchList: builder.query<MoviesType, void>({
+      query: () => handleUrl(RequestMethods.GET),
+      providesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
-    addMovieToWatchList: builder.mutation<any, any>({
+    addMovieToWatchList: builder.mutation<
+      AddToWatchlistResponseType,
+      MovieDataType
+    >({
       query: (movieData) => {
         const { media_type, media_id, watchlist }: MovieDataType = movieData;
         return {
-          url: `/account/${process.env.ACCOUNT_ID}/watchlist?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`,
-          method: "POST",
+          url: handleUrl(RequestMethods.POST),
+          method: RequestMethods.POST,
           body: {
             media_type,
             media_id,
@@ -43,27 +34,27 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           },
         };
       },
-      // Remove this invalidate
       invalidatesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
     deleteMovieFromWatchList: builder.mutation<
       any,
       { movieId: string | number }
     >({
-      query: () => ({
-        url: `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`,
-        method: "DELETE",
-        body: {},
+      query: ({ movieId }) => ({
+        url: "https://jsonplaceholder.typicode.com/posts/1",
+        method: RequestMethods.DELETE,
       }),
-      // Optimistic cach not working!
+      // Optimistic update cach not working!
       onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
-        const result = dispatch(
+        const finalWatchlist = dispatch(
           extendedApiSlice.util.updateQueryData(
             "getWatchList",
             undefined,
             (data) => {
-              // Returns Proxy object!
-              console.log("test", movieId, data.results[0].id);
+              const newWatchlist = data.results.filter(
+                (movie: MovieType) => movie.id !== movieId
+              );
+              Object.assign(data, newWatchlist);
             }
           )
         );
@@ -71,7 +62,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           queryFulfilled;
         } catch {
           console.log("An Error Has Been Occured!");
-          // patchResult.undo();
+          // finalWatchlist.undo();
         }
       },
     }),

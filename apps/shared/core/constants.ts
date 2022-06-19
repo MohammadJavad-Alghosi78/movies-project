@@ -1,3 +1,17 @@
+// Global
+export const accountConstants = {
+  apiKey: process.env.apiKey,
+  sessionId: process.env.sessionId,
+  accountId: process.env.accountId,
+};
+
+export enum RequestMethods {
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
+}
+
 // Button component
 export enum Variant {
   PRIMARY = "primary",

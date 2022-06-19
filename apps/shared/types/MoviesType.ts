@@ -1,4 +1,4 @@
-import { MovieType } from "apps/Home/types/MovieType";
+import { MovieType } from "apps/shared/types/MovieType";
 
 export type MoviesType = {
   page: number;

@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    SESSION_ID: "566d8ad31a5b70deed09211ff9ab6a7b0d54f6d4",
-    ACCOUNT_ID: "Milad787878",
+    sessionId: "566d8ad31a5b70deed09211ff9ab6a7b0d54f6d4",
+    accountId: "Milad787878",
+    apiKey: "bd4c2b8adb9ff5e8d24fe3fef07813c8",
   },
 };
 
