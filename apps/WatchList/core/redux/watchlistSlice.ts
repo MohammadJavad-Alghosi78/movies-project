@@ -5,8 +5,6 @@ import {
   MovieToWatchListType,
 } from "apps/WatchList/types/WatchListTypes";
 
-const API_KEY = "bd4c2b8adb9ff5e8d24fe3fef07813c8";
-
 const handleWatchListUrl = () =>
   `/account/${process.env.ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&session_id=${process.env.SESSION_ID}`;
 
