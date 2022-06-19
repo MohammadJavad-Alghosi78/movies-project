@@ -6,11 +6,11 @@ import { ActorType } from "apps/Actor/types/actorType";
 import handleUrl from "apps/Actor/core/modules/requestUrl";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
-  endpoints: (builder) => ({
-    getCredit: builder.query<ActorType, string>({
-      query: (creditId: string) => handleUrl(`/credit/${creditId}`),
+    endpoints: (builder) => ({
+        getCredit: builder.query<ActorType, string>({
+            query: (creditId: string) => handleUrl(`/credit/${creditId}`),
+        }),
     }),
-  }),
 });
 
 export const { useGetCreditQuery } = extendedApiSlice;

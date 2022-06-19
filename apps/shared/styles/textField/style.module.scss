@@ -2,25 +2,25 @@
 @import "apps/shared/styles/mixins.scss";
 
 @mixin input-constants {
-  border: none;
-  outline: none;
-  padding: 8px;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  font-size: 1rem;
-  &::placeholder {
-    color: $gray;
-  }
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    font-size: 1rem;
+    &::placeholder {
+        color: $gray;
+    }
 }
 
 .text_field {
-  @include input-constants;
+    @include input-constants;
 }
 
 .text_field_bordered {
-  @include input-constants;
-  border: 1px solid $black;
+    @include input-constants;
+    border: 1px solid $black;
 }

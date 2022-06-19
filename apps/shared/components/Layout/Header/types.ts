@@ -1,3 +1,3 @@
 export type HeaderType = {
-  isLogin?: boolean;
+    isLogin?: boolean;
 };

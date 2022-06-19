@@ -1,5 +1,5 @@
 // node_modules
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 // Components
 import HomeView from "apps/Home/components/Home";
 import Layout from "apps/shared/components/Layout";

@@ -2,5 +2,5 @@
 @import "apps/shared/styles/mixins.scss";
 
 .movies_wrapper {
-  @include responsive-wrapper;
+    @include responsive-wrapper;
 }

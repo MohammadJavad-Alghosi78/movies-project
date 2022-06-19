@@ -4,7 +4,7 @@ import React from "react";
 import classes from "apps/shared/styles/layout/body/style.module.scss";
 
 const Body = ({ children }: { children: React.ReactElement }): JSX.Element => {
-  return <div className={classes.body_wrapper}>{children}</div>;
+    return <div className={classes.body_wrapper}>{children}</div>;
 };
 
 export default Body;

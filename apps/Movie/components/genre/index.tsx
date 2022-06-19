@@ -6,7 +6,7 @@ import { GenreType } from "apps/Movie/types/GenreType";
 import classes from "apps/Movie/styles/genre/style.module.scss";
 
 const Genre = ({ label }: GenreType): JSX.Element => {
-  return <span className={classes.genre_wrapper}>{label}</span>;
+    return <span className={classes.genre_wrapper}>{label}</span>;
 };
 
 export default Genre;

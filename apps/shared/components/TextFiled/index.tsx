@@ -6,28 +6,27 @@ import { TextFieldPropsTypes } from "apps/shared/types/textFieldType";
 import classes from "apps/shared/styles/textField/style.module.scss";
 
 const TextField = ({
-  value,
-  handleChange,
-  placeholder,
-  id,
-  type = "text",
-  hasBorder = false,
-  onClick,
+    value,
+    handleChange,
+    placeholder,
+    id,
+    type = "text",
+    hasBorder = false,
 }: TextFieldPropsTypes): JSX.Element => {
-  const handleClassName = () => {
-    if (hasBorder) return classes["text_field_bordered"];
-    return classes["text_field"];
-  };
-  return (
-    <input
-      className={handleClassName()}
-      placeholder={placeholder}
-      type={type}
-      id={id}
-      value={value}
-      onChange={handleChange}
-    />
-  );
+    const handleClassName = () => {
+        if (hasBorder) return classes["text_field_bordered"];
+        return classes["text_field"];
+    };
+    return (
+        <input
+            className={handleClassName()}
+            placeholder={placeholder}
+            type={type}
+            id={id}
+            value={value}
+            onChange={handleChange}
+        />
+    );
 };
 
 export default TextField;

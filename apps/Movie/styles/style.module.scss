@@ -2,15 +2,15 @@
 @import "apps/shared/styles/mixins.scss";
 
 .actor_wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .genre_wrapper {
-  @include flex-between;
-  span {
-    margin-right: 8px;
-  }
+    @include flex-between;
+    span {
+        margin-right: 8px;
+    }
 }

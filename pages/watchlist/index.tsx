@@ -1,5 +1,5 @@
 // node_modules
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 // Components
 import Layout from "apps/shared/components/Layout";
 import WatchListView from "apps/WatchList/components/Watchlist";
