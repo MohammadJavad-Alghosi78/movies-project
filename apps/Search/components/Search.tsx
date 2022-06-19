@@ -33,14 +33,16 @@ const SearchView = (): JSX.Element => {
   if (isLoading) return <h1>Loading ...</h1>;
   else if (isFetching) return <h1>Fetching ...</h1>;
   if (data && data.results && !data.results.length) return <h1>No movie</h1>;
-
-  return (
-    <div className={classes.movies_wrapper}>
-      {data?.results?.map((movie: MovieType) => (
-        <MovieCard key={movie.id} {...movie} />
-      ))}
-    </div>
-  );
+  if (data && data.results && data.results.length) {
+    return (
+      <div className={classes.movies_wrapper}>
+        {data?.results?.map((movie: MovieType) => (
+          <MovieCard key={movie.id} {...movie} />
+        ))}
+      </div>
+    );
+  }
+  return <h1>Loading ...</h1>;
 };
 
 export default SearchView;

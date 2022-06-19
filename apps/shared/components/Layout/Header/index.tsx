@@ -16,7 +16,7 @@ const Header = (): JSX.Element => {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const { removeToken } = useAuth();
-  const [movie, setMovie] = useState("");
+  const [movie, setMovie] = useState<string>("");
 
   const handleClick = () => {
     if (isLogin) {
@@ -38,7 +38,9 @@ const Header = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setMovie(router.query.searchTerm);
+    if (router.query.searchTerm) {
+      setMovie(String(router.query.searchTerm));
+    }
     const token = localStorage.getItem("token");
     if (token) {
       setIsLogin(true);
