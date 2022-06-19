@@ -2,6 +2,7 @@
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
 import { MoviesType } from "apps/shared/types/MoviesType";
+import { MovieType } from "apps/shared/types/MovieType";
 import {
   AddToWatchlistResponseType,
   MovieDataType,
@@ -25,7 +26,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         const { media_type, media_id, watchlist }: MovieDataType = movieData;
         return {
           url: handleUrl(RequestMethods.POST),
-          method: "POST",
+          method: RequestMethods.POST,
           body: {
             media_type,
             media_id,
@@ -39,20 +40,21 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       any,
       { movieId: string | number }
     >({
-      query: () => ({
-        url: handleUrl(),
-        method: "DELETE",
-        body: {},
+      query: ({ movieId }) => ({
+        url: "https://jsonplaceholder.typicode.com/posts/1",
+        method: RequestMethods.DELETE,
       }),
-      // Optimistic cach not working!
+      // Optimistic update cach not working!
       onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
-        const result = dispatch(
+        const finalWatchlist = dispatch(
           extendedApiSlice.util.updateQueryData(
             "getWatchList",
             undefined,
             (data) => {
-              // Returns Proxy object!
-              console.log("test", movieId, data.results[0].id);
+              const newWatchlist = data.results.filter(
+                (movie: MovieType) => movie.id !== movieId
+              );
+              Object.assign(data, newWatchlist);
             }
           )
         );
@@ -60,7 +62,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           queryFulfilled;
         } catch {
           console.log("An Error Has Been Occured!");
-          // patchResult.undo();
+          // finalWatchlist.undo();
         }
       },
     }),
