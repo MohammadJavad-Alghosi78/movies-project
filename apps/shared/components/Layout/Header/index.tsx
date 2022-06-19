@@ -46,7 +46,7 @@ const Header = (): JSX.Element => {
     } else {
       setIsLogin(false);
     }
-  }, []);
+  }, [router]);
 
   // JSX
   return (
