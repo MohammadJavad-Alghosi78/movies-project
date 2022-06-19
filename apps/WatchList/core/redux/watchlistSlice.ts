@@ -2,7 +2,10 @@
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
 import { MoviesType } from "apps/shared/types/MoviesType";
-import { MovieDataType } from "apps/WatchList/types/WatchListTypes";
+import {
+  AddToWatchlistResponseType,
+  MovieDataType,
+} from "apps/WatchList/types/WatchListTypes";
 // helper
 import handleUrl from "apps/WatchList/core/modules/requestUrl";
 // constants
@@ -12,10 +15,12 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getWatchList: builder.query<MoviesType, void>({
       query: () => handleUrl(RequestMethods.GET),
-      // Question:
-      // Should not be set a providesTags? (we have a POST request here)
+      providesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
-    addMovieToWatchList: builder.mutation<any, MovieDataType>({
+    addMovieToWatchList: builder.mutation<
+      AddToWatchlistResponseType,
+      MovieDataType
+    >({
       query: (movieData) => {
         const { media_type, media_id, watchlist }: MovieDataType = movieData;
         return {
@@ -28,6 +33,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           },
         };
       },
+      invalidatesTags: [{ type: "Watchlist", id: "LIST" }],
     }),
     deleteMovieFromWatchList: builder.mutation<
       any,

@@ -31,7 +31,8 @@ const MovieView = (): JSX.Element => {
       data: movie,
     } = useGetMovieQuery(Number(router.query.movieId));
     const { data: actors } = useGetCreditsQuery(Number(router.query.movieId));
-    const [addMovieToWatchList] = useAddMovieToWatchListMutation();
+    const [addMovieToWatchList, { data }] = useAddMovieToWatchListMutation();
+    console.log("====", data);
     if (isLoading) content = <h1>Loading...</h1>;
     if (isError) content = <h1>An error has been occured</h1>;
     content = (

@@ -13,3 +13,9 @@ export type MovieToWatchListResponseType = {
   status_code: number;
   status_message: string;
 };
+
+export type AddToWatchlistResponseType = {
+  status_code: number;
+  status_message: string;
+  success: boolean;
+};
