@@ -8,8 +8,13 @@
     color: $yellow;
     padding: $page-padding;
     max-height: 72px;
-    // position: fixed;
-    // top: 0;
+    .left_section {
+        @include flex-center;
+        .home_link {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+    }
     .right_section {
         @include flex-between;
 

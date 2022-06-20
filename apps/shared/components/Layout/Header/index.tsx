@@ -52,7 +52,10 @@ const Header = (): JSX.Element => {
     // JSX
     return (
         <div className={classes.header_wrapper}>
-            <div>
+            <div className={classes.left_section}>
+                <Link href="/" passHref>
+                    <h3 className={classes.home_link}>Home</h3>
+                </Link>
                 <TextField
                     value={movie}
                     placeholder={headerConstants.placeholder}
