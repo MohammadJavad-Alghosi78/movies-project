@@ -1,5 +1,5 @@
 // node_modules
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // api
@@ -12,6 +12,7 @@ import Box from "apps/shared/components/Box";
 import Button from "apps/shared/components/Button";
 // types
 import { MovieGenreType } from "apps/Movie/types/MovieGenreType";
+import { CastAndCrewType } from "../types/CreditType";
 // styles
 import classes from "apps/Movie/styles/style.module.scss";
 
@@ -69,9 +70,7 @@ const MovieView = (): JSX.Element => {
             </Box>
             <h1>Actors:</h1>
             <div className={classes.actor_wrapper}>
-                {actors?.cast.map((actor: any) => (
-                    // Question:
-                    // 1. Why this link does not work when a tag is not exist?
+                {actors?.cast.map((actor: CastAndCrewType) => (
                     <Link
                         key={actor.id}
                         href={`/movies/${router.query.movieId}/actor/${actor.credit_id}`}
