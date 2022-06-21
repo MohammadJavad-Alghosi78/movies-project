@@ -18,7 +18,6 @@ export type Page<P = Record<string, unknown>> = NextPage<P> & {
 
 type Props = AppProps & {
     Component: Page;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pageProps: any;
 };
 

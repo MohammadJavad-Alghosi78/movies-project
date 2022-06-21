@@ -1,5 +1,5 @@
 // node_modules
-import React from "react";
+import React, { useEffect } from "react";
 // api
 import { useGetMoviesQuery } from "apps/Home/core/redux/moviesSlice";
 // components
@@ -8,6 +8,8 @@ import MovieCard from "apps/shared/components/MovieCard";
 import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/Home/styles/style.module.scss";
+
+console.log("This is test");
 
 const HomeView = () => {
     const { isError, isLoading, data } = useGetMoviesQuery();
