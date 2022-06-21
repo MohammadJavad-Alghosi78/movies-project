@@ -7,11 +7,11 @@
     background-color: $black;
     color: $yellow;
     padding: $page-padding;
-    max-height: 72px;
+    max-height: 4.5rem;
     .left_section {
         @include flex-center;
         .home_link {
-            margin-right: 12px;
+            margin-right: 0.75rem;
             cursor: pointer;
         }
     }
@@ -19,7 +19,7 @@
         @include flex-between;
 
         .watchlist_text {
-            margin-right: 16px;
+            margin-right: 1rem;
         }
     }
 }

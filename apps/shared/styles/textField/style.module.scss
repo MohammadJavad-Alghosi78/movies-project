@@ -4,12 +4,12 @@
 @mixin input-constants {
     border: none;
     outline: none;
-    padding: 8px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
     font-size: 1rem;
     &::placeholder {
         color: $gray;
@@ -22,5 +22,5 @@
 
 .text_field_bordered {
     @include input-constants;
-    border: 1px solid $black;
+    border: 0.0625rem solid $black;
 }

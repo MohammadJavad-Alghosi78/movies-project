@@ -4,16 +4,16 @@
 @mixin default-button {
     border: none;
     outline: none;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 0.75rem;
+    -webkit-border-radius: 0.75rem;
+    -moz-border-radius: 0.75rem;
+    -ms-border-radius: 0.75rem;
+    -o-border-radius: 0.75rem;
     background-color: $red;
     color: $white;
-    padding: 8px;
-    width: 80px;
-    height: 34px;
+    padding: 0.5rem;
+    width: 5rem;
+    height: 2.25rem;
     cursor: pointer;
     text-align: center;
 }

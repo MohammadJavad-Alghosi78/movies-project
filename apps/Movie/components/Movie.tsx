@@ -46,7 +46,7 @@ const MovieView = (): JSX.Element => {
                 <h3>{movie?.original_title}</h3>
                 {isLogin && (
                     <Button
-                        styles={{ width: "200px" }}
+                        styles={{ width: "12.5rem" }}
                         onClick={() =>
                             addMovieToWatchList({
                                 media_type: "movie",
