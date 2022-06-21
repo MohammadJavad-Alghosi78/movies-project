@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-empty-pattern */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable camelcase */
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
 import { MoviesType } from "apps/shared/types/MoviesType";
+import { MovieType } from "apps/shared/types/MovieType";
 import {
     AddToWatchlistResponseType,
     MovieDataType,
@@ -49,7 +46,18 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 method: RequestMethods.DELETE,
             }),
             // Optimistic update cach not working!
-            onQueryStarted({}, { queryFulfilled }) {
+            onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
+                dispatch(
+                    extendedApiSlice.util.updateQueryData(
+                        "getWatchList",
+                        undefined,
+                        data => {
+                            data.results = data?.results?.filter(
+                                (movie: MovieType) => movie.id !== movieId
+                            );
+                        }
+                    )
+                );
                 try {
                     queryFulfilled;
                 } catch {

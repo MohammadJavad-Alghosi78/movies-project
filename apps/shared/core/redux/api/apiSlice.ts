@@ -11,5 +11,6 @@ export const apiSlice = createApi({
         "Credits",
         "Credit",
     ],
-    endpoints: () => ({}),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    endpoints: builder => ({}),
 });
