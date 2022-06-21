@@ -51,6 +51,7 @@ module.exports = {
     ],
 
     rules: {
+        "react/function-component-definition": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/no-explicit-any": "error",
         "react/react-in-jsx-scope": "off",

@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable camelcase */
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
@@ -61,7 +65,6 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 try {
                     queryFulfilled;
                 } catch {
-                    console.log("An Error Has Been Occured!");
                     // finalWatchlist.undo();
                 }
             },
