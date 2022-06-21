@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 // Global
 export const accountConstants = {
     apiKey: process.env.apiKey,

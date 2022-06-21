@@ -1,7 +1,14 @@
-// eslint-disable-next-line no-undef
 module.exports = {
-    // Run type-check on changes to TypeScript files
-    "**/*.ts?(x)": () => "yarn type-check",
-    // Run ESLint on changes to JavaScript/TypeScript files
-    "**/*.(ts|js)?(x)": (filenames) => `yarn lint . ${filenames.join(" ")}`,
+    // this will check Typescript files
+    "**/*.(ts|tsx)": () => "yarn tsc --noEmit",
+
+    // This will lint and format TypeScript and                                             //JavaScript files
+    "**/*.(ts|tsx|js)": filenames => [
+        `yarn eslint --fix ${filenames.join(" ")}`,
+        `yarn prettier --write ${filenames.join(" ")}`,
+    ],
+
+    // this will Format MarkDown and JSON
+    "**/*.(md|json)": filenames =>
+        `yarn prettier --write ${filenames.join(" ")}`,
 };

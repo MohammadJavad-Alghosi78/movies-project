@@ -1,5 +1,5 @@
 // node_modules
-import React, { useEffect } from "react";
+import React from "react";
 // api
 import { useGetMoviesQuery } from "apps/Home/core/redux/moviesSlice";
 // components
@@ -9,12 +9,10 @@ import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/Home/styles/style.module.scss";
 
-console.log("This is test");
-
-const HomeView = () => {
+function HomeView() {
     const { isError, isLoading, data } = useGetMoviesQuery();
     if (isLoading) return <h1>Loading ...</h1>;
-    else if (isError) return <h1>An error has been occured</h1>;
+    if (isError) return <h1>An error has been occured</h1>;
     return (
         <div className={classes.movies_wrapper}>
             {data?.results?.map((movie: MovieType) => (
@@ -22,6 +20,6 @@ const HomeView = () => {
             ))}
         </div>
     );
-};
+}
 
 export default HomeView;

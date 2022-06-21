@@ -5,17 +5,17 @@ import { TextFieldPropsTypes } from "apps/shared/types/textFieldType";
 // styles
 import classes from "apps/shared/styles/textField/style.module.scss";
 
-const TextField = ({
+function TextField({
     value,
     handleChange,
     placeholder,
     id,
     type = "text",
     hasBorder = false,
-}: TextFieldPropsTypes): JSX.Element => {
+}: TextFieldPropsTypes): JSX.Element {
     const handleClassName = () => {
-        if (hasBorder) return classes["text_field_bordered"];
-        return classes["text_field"];
+        if (hasBorder) return classes.text_field_bordered;
+        return classes.text_field;
     };
     return (
         <input
@@ -27,6 +27,6 @@ const TextField = ({
             onChange={handleChange}
         />
     );
-};
+}
 
 export default TextField;

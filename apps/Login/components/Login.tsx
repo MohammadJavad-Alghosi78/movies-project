@@ -9,7 +9,7 @@ import { EMAIL, PASSWORD } from "apps/Login/core/constants";
 // styles
 import classes from "apps/Login/styles/style.module.scss";
 
-const LoginView = () => {
+function LoginView() {
     const router = useRouter();
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -56,12 +56,16 @@ const LoginView = () => {
                         hasBorder
                     />
                 </div>
-                <Button variant="danger" type="submit" styles={{ width: "100%" }}>
+                <Button
+                    variant="danger"
+                    type="submit"
+                    styles={{ width: "100%" }}
+                >
                     submit
                 </Button>
             </form>
         </div>
     );
-};
+}
 
 export default LoginView;

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // node_modules
 import React from "react";
 // api
@@ -9,11 +10,11 @@ import { MovieType } from "apps/shared/types/MovieType";
 // Styles
 import classes from "apps/WatchList/styles/watchlistMovieCard/style.module.scss";
 
-const WatchListMovieCard = ({
+function WatchListMovieCard({
     movieId = "1",
     original_title,
     overview,
-}: MovieType): JSX.Element => {
+}: MovieType): JSX.Element {
     const [removeMovieFromWatchList] = useDeleteMovieFromWatchListMutation();
     return (
         <div className={classes.watchlist_movie_card}>
@@ -30,6 +31,6 @@ const WatchListMovieCard = ({
             </Button>
         </div>
     );
-};
+}
 
 export default WatchListMovieCard;

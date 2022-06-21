@@ -12,7 +12,7 @@ import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/Search/styles/style.module.scss";
 
-const SearchView = (): JSX.Element => {
+function SearchView(): JSX.Element {
     const router = useRouter();
     const [searchTerm, setSearchTerm] = useState<string>("");
     const debouncedSearchTerm = useDebounce(searchTerm, 1000);
@@ -32,7 +32,7 @@ const SearchView = (): JSX.Element => {
 
     if (isError) return <h1>An error has been occured</h1>;
     if (isLoading && !isError) return <h1>Loading ...</h1>;
-    else if (isFetching) return <h1>Fetching ...</h1>;
+    if (isFetching) return <h1>Fetching ...</h1>;
     if (data && data.results && !data.results.length) return <h1>No movie</h1>;
     if (data && data.results && data.results.length) {
         return (
@@ -44,6 +44,6 @@ const SearchView = (): JSX.Element => {
         );
     }
     return <h1>Loading ...</h1>;
-};
+}
 
 export default SearchView;

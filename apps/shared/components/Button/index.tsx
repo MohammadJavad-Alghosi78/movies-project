@@ -7,28 +7,34 @@ import { Variant } from "apps/shared/core/constants";
 // styles
 import classes from "apps/shared/styles/button/style.module.scss";
 
-const Button = ({
+function Button({
     children,
     variant = "primary",
     onClick,
     type = "button",
     styles = {},
-}: ButtonPropsType) => {
+}: ButtonPropsType) {
     const handleClassName = () => {
         switch (variant) {
             case Variant.PRIMARY:
-                return classes["button_primary"];
+                return classes.button_primary;
             case Variant.DANGER:
-                return classes["button_danger"];
+                return classes.button_danger;
             default:
                 return "";
         }
     };
     return (
-        <button className={handleClassName()} type={type} onClick={onClick} style={styles}>
+        <button
+            className={handleClassName()}
+            // eslint-disable-next-line react/button-has-type
+            type={type}
+            onClick={onClick}
+            style={styles}
+        >
             {children}
         </button>
     );
-};
+}
 
 export default Button;

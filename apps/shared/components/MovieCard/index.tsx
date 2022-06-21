@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // node_modules
 import React from "react";
 import Link from "next/link";
@@ -9,7 +10,12 @@ import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/shared/styles/movieCard/style.module.scss";
 
-const MovieCard = ({ id, original_title, overview, vote_average }: MovieType): JSX.Element => {
+function MovieCard({
+    id,
+    original_title,
+    overview,
+    vote_average,
+}: MovieType): JSX.Element {
     return (
         <Link href={`/movies/${id}`} passHref>
             <div className={classes.card}>
@@ -19,6 +25,6 @@ const MovieCard = ({ id, original_title, overview, vote_average }: MovieType): J
             </div>
         </Link>
     );
-};
+}
 
 export default MovieCard;
