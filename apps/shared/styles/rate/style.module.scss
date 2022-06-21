@@ -5,7 +5,7 @@
     @include flex-center;
     width: 2rem;
     height: 2rem;
-    border: 1px solid $red;
+    border: 0.0625rem solid $red;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -16,24 +16,24 @@
 
 .rating_top_right {
     @include rating;
-    top: 8px;
-    right: 8px;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 .rating_top_left {
     @include rating;
-    top: 8px;
-    left: 8px;
+    top: 0.5rem;
+    left: 0.5rem;
 }
 
 .rating_bottom_left {
     @include rating;
-    bottom: 8px;
-    left: 8px;
+    bottom: 0.5rem;
+    left: 0.5rem;
 }
 
 .rating_bottom_right {
     @include rating;
-    bottom: 8px;
-    right: 8px;
+    bottom: 0.5rem;
+    right: 0.5rem;
 }

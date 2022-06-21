@@ -9,8 +9,6 @@ import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/Home/styles/style.module.scss";
 
-console.log("This is test");
-
 const HomeView = () => {
     const { isError, isLoading, data } = useGetMoviesQuery();
     if (isLoading) return <h1>Loading ...</h1>;
