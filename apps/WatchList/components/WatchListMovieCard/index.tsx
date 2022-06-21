@@ -22,7 +22,7 @@ function WatchListMovieCard({
             <h5>{overview}</h5>
             <Button
                 variant="danger"
-                styles={{ width: "150px" }}
+                styles={{ width: "9.375rem" }}
                 onClick={() => {
                     removeMovieFromWatchList({ movieId });
                 }}

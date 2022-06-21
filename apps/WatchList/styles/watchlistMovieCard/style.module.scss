@@ -2,17 +2,17 @@
 @import "apps/shared/styles/mixins.scss";
 
 .watchlist_movie_card {
-    width: 350px;
-    height: 300px;
-    padding: 12px 12px;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    border: 1px solid $black;
-    margin-bottom: 12px;
+    width: 21.875rem;
+    height: 18.75rem;
+    padding: 0.75rem 0.75rem;
+    border-radius: 1.25rem;
+    -webkit-border-radius: 1.25rem;
+    -moz-border-radius: 1.25rem;
+    -ms-border-radius: 1.25rem;
+    -o-border-radius: 1.25rem;
+    border: 0.0625rem solid $black;
+    margin-bottom: 0.75rem;
     & > * {
-        margin: 12px 0;
+        margin: 0.75rem 0;
     }
 }
