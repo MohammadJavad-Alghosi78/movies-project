@@ -24,7 +24,7 @@ function MovieView(): JSX.Element {
     const [isLogin, setIsLogin] = useState<boolean>(false);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         if (token) setIsLogin(true);
         else setIsLogin(false);
     }, []);

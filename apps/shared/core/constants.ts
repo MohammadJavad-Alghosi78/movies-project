@@ -2,7 +2,7 @@
 // Global
 export const accountConstants = {
     apiKey: process.env.apiKey,
-    sessionId: process.env.sessionId,
+    // sessionId: process.env.sessionId,
     accountId: process.env.accountId,
 };
 

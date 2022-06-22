@@ -3,24 +3,28 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // components
+import TextField from "apps/shared/components/TextFiled";
+import Button from "apps/shared/components/Button";
+// api
+import { useRemoveSessionMutation } from "apps/Login/core/redux/loginSlice";
 // hooks
 import useAuth from "apps/shared/core/modules/hooks/useAuth";
 // Constants
 import { headerConstants } from "apps/shared/core/constants";
 // styles
 import classes from "apps/shared/styles/layout/header/style.module.scss";
-import Button from "../../Button";
-import TextField from "../../TextFiled";
 
 function Header(): JSX.Element {
     const router = useRouter();
     const [isLogin, setIsLogin] = useState<boolean>(false);
-    const { removeToken } = useAuth();
     const [movie, setMovie] = useState<string>("");
+    const { removeToken, sessionId } = useAuth();
+    const [logoutHandler] = useRemoveSessionMutation();
 
     const handleClick = () => {
         if (isLogin) {
             removeToken();
+            logoutHandler(sessionId);
             setIsLogin(false);
         } else {
             router.push("/login");
@@ -40,7 +44,7 @@ function Header(): JSX.Element {
         if (router.query.searchTerm) {
             setMovie(String(router.query.searchTerm));
         }
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         if (token) {
             setIsLogin(true);
         } else {
