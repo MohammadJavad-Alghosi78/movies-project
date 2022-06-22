@@ -34,16 +34,6 @@ function LoginView() {
         setIsValid(true);
     };
 
-    // const handleError = () => {
-    //     if (
-    //         isError ||
-    //         validationTokenResults.isError ||
-    //         creatingNewSessionIdResults.isError
-    //     ) {
-    //         return <h1 style={{ textAlign: "center" }}>Login failed</h1>;
-    //     }
-    // };
-
     useEffect(() => {
         if (!isValid) return undefined;
         if (tokenData) {
@@ -62,7 +52,7 @@ function LoginView() {
     useEffect(() => {
         if (creatingNewSessionIdResults?.data) {
             sessionStorage.setItem(
-                "sessionId",
+                "token",
                 creatingNewSessionIdResults?.data?.session_id
             );
             router.replace("/");
