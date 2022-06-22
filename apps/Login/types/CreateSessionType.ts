@@ -7,4 +7,5 @@ export type CreateNewSessionResponseType = {
     failure?: boolean;
     status_code?: number;
     status_message?: string;
+    session_id?: string;
 };

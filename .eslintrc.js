@@ -57,6 +57,7 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "consistent-return": "off",
         camelcase: "off",
+        "no-unsafe-optional-chaining": "off",
         "react/jsx-filename-extension": [
             1,
             {

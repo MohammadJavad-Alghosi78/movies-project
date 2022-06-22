@@ -36,11 +36,11 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
             CreateNewSessionResponseType,
             CreateNewSessionRequestType
         >({
-            query: request_token => ({
+            query: data => ({
                 url: handleUrl("/authentication/session/new"),
                 method: "POST",
                 body: {
-                    request_token,
+                    request_token: data.request_token,
                 },
             }),
         }),

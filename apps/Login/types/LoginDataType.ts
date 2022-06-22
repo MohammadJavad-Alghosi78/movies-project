@@ -5,7 +5,7 @@ export type LoginDataType = {
 };
 
 export type validateLoginResponseType = {
-    success: boolean;
-    status_code: number;
-    status_message: string;
+    expires_at: string;
+    request_token: string;
+    success: true;
 };
