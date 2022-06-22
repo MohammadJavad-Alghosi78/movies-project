@@ -56,6 +56,7 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": "error",
         "react/react-in-jsx-scope": "off",
         "consistent-return": "off",
+        camelcase: "off",
         "react/jsx-filename-extension": [
             1,
             {

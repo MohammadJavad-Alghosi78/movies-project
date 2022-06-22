@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
@@ -45,7 +44,21 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 },
             }),
         }),
+        removeSession: builder.mutation<{ success: boolean }, string>({
+            query: sessionId => ({
+                url: handleUrl("/authentication/session"),
+                method: "DELETE",
+                body: {
+                    session_id: sessionId,
+                },
+            }),
+        }),
     }),
 });
 
-export const { useGetTokenQuery } = extendedApiSlice;
+export const {
+    useGetTokenQuery,
+    useValidateTokenMutation,
+    useCreateNewSessionMutation,
+    useRemoveSessionMutation,
+} = extendedApiSlice;
