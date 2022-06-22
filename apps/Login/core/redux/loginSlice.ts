@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
@@ -8,6 +9,10 @@ import {
 } from "apps/Login/types/LoginDataType";
 // helper
 import handleUrl from "apps/Login/core/modules/requestUrl";
+import {
+    CreateNewSessionRequestType,
+    CreateNewSessionResponseType,
+} from "apps/Login/types/CreateSessionType";
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
@@ -25,6 +30,18 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                     username: loginData.username,
                     password: loginData.password,
                     request_token: loginData.request_token,
+                },
+            }),
+        }),
+        createNewSession: builder.mutation<
+            CreateNewSessionResponseType,
+            CreateNewSessionRequestType
+        >({
+            query: request_token => ({
+                url: handleUrl("/authentication/session/new"),
+                method: "POST",
+                body: {
+                    request_token,
                 },
             }),
         }),
