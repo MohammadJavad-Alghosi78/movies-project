@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow */
 export const accountConstants = {
     apiKey: process.env.apiKey,
-    accountId: process.env.accountId,
 };
 
 export enum RequestMethods {
