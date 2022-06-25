@@ -9,7 +9,7 @@ import MovieCard from "apps/shared/components/MovieCard";
 // types  Refactor: change directory of this type
 import { MovieType } from "apps/shared/types/MovieType";
 // styles
-import classes from "apps/Search/styles/style.module.scss";
+import classes from "apps/Search/styles/search.module.scss";
 
 function SearchView(): JSX.Element {
     const router = useRouter();

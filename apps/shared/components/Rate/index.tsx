@@ -4,7 +4,7 @@ import { RateType } from "apps/shared/types/RateType";
 // constants
 import { Place } from "apps/shared/core/constants";
 // styles
-import classes from "apps/shared/styles/rate/style.module.scss";
+import classes from "apps/shared/styles/rate/rate.module.scss";
 
 function Rate({ rate, place = "top-right" }: RateType): JSX.Element {
     const handleClassName = () => {

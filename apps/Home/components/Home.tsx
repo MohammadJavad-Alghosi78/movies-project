@@ -6,7 +6,7 @@ import MovieCard from "apps/shared/components/MovieCard";
 // types
 import { MovieType } from "apps/shared/types/MovieType";
 // styles
-import classes from "apps/Home/styles/style.module.scss";
+import classes from "apps/Home/styles/home.module.scss";
 
 function HomeView() {
     const { isError, isLoading, data } = useGetMoviesQuery();

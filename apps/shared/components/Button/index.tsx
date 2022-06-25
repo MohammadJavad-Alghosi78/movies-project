@@ -4,7 +4,7 @@ import { ButtonPropsType } from "apps/shared/types/ButtonType";
 // constants
 import { Variant } from "apps/shared/core/constants";
 // styles
-import classes from "apps/shared/styles/button/style.module.scss";
+import classes from "apps/shared/styles/button/button.module.scss";
 
 function Button({
     children,

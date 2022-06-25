@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // components
-import TextField from "apps/shared/components/TextFiled";
+import TextField from "@/apps/shared/components/TextField";
 import Button from "apps/shared/components/Button";
 // api
 import { useRemoveSessionMutation } from "apps/Login/core/redux/loginSlice";
@@ -11,7 +11,7 @@ import useAuth from "apps/shared/core/modules/hooks/useAuth";
 // Constants
 import { headerConstants } from "apps/shared/core/constants";
 // styles
-import classes from "apps/shared/styles/layout/header/style.module.scss";
+import classes from "apps/shared/styles/layout/header/header.module.scss";
 
 function Header(): JSX.Element {
     const router = useRouter();

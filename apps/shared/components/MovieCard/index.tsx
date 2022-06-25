@@ -7,7 +7,7 @@ import Rate from "apps/shared/components/Rate";
 // Refactor: change the directory of MovieType
 import { MovieType } from "apps/shared/types/MovieType";
 // styles
-import classes from "apps/shared/styles/movieCard/style.module.scss";
+import classes from "apps/shared/styles/movieCard/movieCard.module.scss";
 
 function MovieCard({
     id,

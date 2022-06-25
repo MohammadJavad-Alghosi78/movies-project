@@ -14,7 +14,7 @@ import Box from "apps/shared/components/Box";
 import Button from "apps/shared/components/Button";
 // types
 import { MovieGenreType } from "apps/Movie/types/MovieGenreType";
-import classes from "apps/Movie/styles/style.module.scss";
+import classes from "apps/Movie/styles/movie.module.scss";
 import { CastAndCrewType } from "../types/CreditType";
 // styles
 
