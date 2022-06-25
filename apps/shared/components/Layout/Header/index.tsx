@@ -1,9 +1,8 @@
-// node_modules
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // components
-import TextField from "apps/shared/components/TextFiled";
+import TextField from "apps/shared/components/TextField";
 import Button from "apps/shared/components/Button";
 // api
 import { useRemoveSessionMutation } from "apps/Login/core/redux/loginSlice";
@@ -12,20 +11,20 @@ import useAuth from "apps/shared/core/modules/hooks/useAuth";
 // Constants
 import { headerConstants } from "apps/shared/core/constants";
 // styles
-import classes from "apps/shared/styles/layout/header/style.module.scss";
+import classes from "apps/shared/styles/layout/header/header.module.scss";
 
 function Header(): JSX.Element {
     const router = useRouter();
-    const [isLogin, setIsLogin] = useState<boolean>(false);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [movie, setMovie] = useState<string>("");
     const { removeToken, sessionId } = useAuth();
     const [logoutHandler] = useRemoveSessionMutation();
 
     const handleClick = () => {
-        if (isLogin) {
+        if (isLoggedIn) {
             removeToken();
             logoutHandler(sessionId);
-            setIsLogin(false);
+            setIsLoggedIn(false);
         } else {
             router.push("/login");
         }
@@ -46,9 +45,9 @@ function Header(): JSX.Element {
         }
         const token = sessionStorage.getItem("token");
         if (token) {
-            setIsLogin(true);
+            setIsLoggedIn(true);
         } else {
-            setIsLogin(false);
+            setIsLoggedIn(false);
         }
     }, [router]);
 
@@ -67,13 +66,13 @@ function Header(): JSX.Element {
                 />
             </div>
             <div className={classes.right_section}>
-                {isLogin && (
+                {isLoggedIn && (
                     <Link href="/watchlist">
                         <a className={classes.watchlist_text}>Watchlist</a>
                     </Link>
                 )}
                 <Button onClick={handleClick}>
-                    {isLogin ? "Logout" : "Login"}
+                    {isLoggedIn ? "Logout" : "Login"}
                 </Button>
             </div>
         </div>

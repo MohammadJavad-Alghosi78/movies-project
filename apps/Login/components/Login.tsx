@@ -1,8 +1,7 @@
-// node_modules
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // components
-import TextField from "apps/shared/components/TextFiled";
+import TextField from "apps/shared/components/TextField";
 import Button from "apps/shared/components/Button";
 // api
 import {
@@ -11,7 +10,7 @@ import {
     useCreateNewSessionMutation,
 } from "apps/Login/core/redux/loginSlice";
 // styles
-import classes from "apps/Login/styles/style.module.scss";
+import classes from "apps/Login/styles/login.module.scss";
 
 function LoginView() {
     const router = useRouter();
@@ -35,8 +34,7 @@ function LoginView() {
     };
 
     useEffect(() => {
-        if (!isValid) return undefined;
-        if (tokenData) {
+        if (isValid && tokenData) {
             const { request_token } = tokenData;
             validateToken({ username, password, request_token });
         }

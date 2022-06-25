@@ -1,0 +1,32 @@
+@import "apps/shared/styles/variables.scss";
+
+.login_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 50%;
+    margin: 0 auto;
+    border: 0.0625rem solid $black;
+    border-radius: 1.25rem;
+
+    .form_title {
+        text-align: center;
+        padding: 0;
+        margin: 0 0 2rem 0;
+    }
+    .form_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        .label {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.login_error {
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+@import "apps/shared/styles/variables.scss";
+
+.card {
+    width: 18.75rem;
+    border-radius: 1rem;
+    border: 0.1875rem solid $yellow;
+    background-color: $black;
+    color: $white;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    height: 12.5rem;
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-0.5rem);
+    }
+    .card_title {
+        display: block;
+        max-width: 18.75rem;
+        margin-bottom: 0.5rem;
+    }
+}

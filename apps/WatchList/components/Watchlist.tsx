@@ -1,13 +1,12 @@
-// node_modules
 import React from "react";
 // api
 import { useGetWatchListQuery } from "apps/WatchList/core/redux/watchlistSlice";
 // types
-import { MovieType } from "apps/shared/types/MovieType";
+import { MovieType } from "apps/shared/types/SharedTypes";
 // components
 import WatchListMovieCard from "apps/WatchList/components/WatchListMovieCard";
 // styles
-import classes from "apps/WatchList/styles/style.module.scss";
+import classes from "apps/WatchList/styles/watchlist.module.scss";
 
 function WatchListView() {
     const { isLoading, isError, data: movies } = useGetWatchListQuery();
@@ -22,7 +21,7 @@ function WatchListView() {
                 <WatchListMovieCard
                     key={movie.id}
                     movieId={movie.id}
-                    original_title={movie.original_title}
+                    originalTitle={movie.original_title}
                     overview={movie.overview}
                 />
             ))}

@@ -1,7 +1,0 @@
-@import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
-
-.body_wrapper {
-    padding: $page-padding;
-    min-height: calc(100vh - 4.5rem);
-}

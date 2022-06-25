@@ -1,6 +1,0 @@
-@import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
-
-.movies_wrapper {
-    @include responsive-wrapper;
-}

@@ -1,0 +1,25 @@
+@import "apps/shared/styles/variables.scss";
+
+@mixin default-button {
+    border: none;
+    outline: none;
+    border-radius: 0.75rem;
+    background-color: $red;
+    color: $white;
+    padding: 0.5rem;
+    width: 5rem;
+    height: 2.25rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button_primary {
+    @include default-button;
+    background-color: $red;
+}
+
+.button_danger {
+    @include default-button;
+    background-color: $yellow;
+    color: $black;
+}

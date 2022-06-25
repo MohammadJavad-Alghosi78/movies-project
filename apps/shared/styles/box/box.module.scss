@@ -1,0 +1,11 @@
+@import "apps/shared/styles/variables.scss";
+
+.box_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+    border: 0.0625rem solid $black;
+    border-radius: 0.5rem;
+}

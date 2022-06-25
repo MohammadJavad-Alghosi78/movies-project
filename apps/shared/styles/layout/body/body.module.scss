@@ -1,0 +1,6 @@
+@import "apps/shared/styles/variables.scss";
+
+.body_wrapper {
+    padding: $page-padding;
+    min-height: calc(100vh - 4.5rem);
+}

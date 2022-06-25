@@ -1,0 +1,21 @@
+@import "apps/shared/styles/variables.scss";
+
+@mixin input-constants {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    &::placeholder {
+        color: $gray;
+    }
+}
+
+.text_field {
+    @include input-constants;
+}
+
+.text_field_bordered {
+    @include input-constants;
+    border: 0.0625rem solid $black;
+}

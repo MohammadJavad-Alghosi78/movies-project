@@ -5,21 +5,21 @@
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
-import { MoviesType } from "apps/shared/types/MoviesType";
-import { MovieType } from "apps/shared/types/MovieType";
+import { MoviesType, MovieType } from "apps/shared/types/SharedTypes";
 import {
     AddToWatchlistResponseType,
     MovieDataType,
 } from "apps/WatchList/types/WatchListTypes";
 // helper
-import handleUrl from "apps/WatchList/core/modules/requestUrl";
+import handleUrl from "apps/shared/core/modules/helper/requestUrl";
 // constants
-import { RequestMethods } from "apps/shared/core/constants";
+import { RequestMethods, ServiceName } from "apps/shared/core/constants";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const watchlistSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getWatchList: builder.query<MoviesType, void>({
-            query: () => handleUrl(RequestMethods.GET),
+            query: () =>
+                handleUrl("", ServiceName.WATCHLIST, "", RequestMethods.GET),
             providesTags: [{ type: "Watchlist", id: "LIST" }],
         }),
         addMovieToWatchList: builder.mutation<
@@ -30,7 +30,12 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 const { media_type, media_id, watchlist }: MovieDataType =
                     movieData;
                 return {
-                    url: handleUrl(RequestMethods.POST),
+                    url: handleUrl(
+                        "",
+                        ServiceName.WATCHLIST,
+                        "",
+                        RequestMethods.POST
+                    ),
                     method: RequestMethods.POST,
                     body: {
                         media_type,
@@ -49,10 +54,9 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 url: `/posts/${movieId}`,
                 method: RequestMethods.DELETE,
             }),
-            // Optimistic update cach not working!
             onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
                 dispatch(
-                    extendedApiSlice.util.updateQueryData(
+                    watchlistSlice.util.updateQueryData(
                         "getWatchList",
                         undefined,
                         data => {
@@ -62,11 +66,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                         }
                     )
                 );
-                try {
-                    queryFulfilled;
-                } catch {
-                    // finalWatchlist.undo();
-                }
+                queryFulfilled;
             },
         }),
     }),
@@ -76,4 +76,4 @@ export const {
     useGetWatchListQuery,
     useAddMovieToWatchListMutation,
     useDeleteMovieFromWatchListMutation,
-} = extendedApiSlice;
+} = watchlistSlice;

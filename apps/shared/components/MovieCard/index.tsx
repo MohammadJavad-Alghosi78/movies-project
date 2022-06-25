@@ -1,14 +1,12 @@
 /* eslint-disable camelcase */
-// node_modules
 import React from "react";
 import Link from "next/link";
 // components
 import Rate from "apps/shared/components/Rate";
 // types
-// Refactor: change the directory of MovieType
-import { MovieType } from "apps/shared/types/MovieType";
+import { MovieType } from "apps/shared/types/SharedTypes";
 // styles
-import classes from "apps/shared/styles/movieCard/style.module.scss";
+import classes from "apps/shared/styles/movieCard/movieCard.module.scss";
 
 function MovieCard({
     id,

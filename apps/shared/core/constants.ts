@@ -1,8 +1,6 @@
 /* eslint-disable no-shadow */
-// Global
 export const accountConstants = {
     apiKey: process.env.apiKey,
-    // sessionId: process.env.sessionId,
     accountId: process.env.accountId,
 };
 
@@ -13,7 +11,6 @@ export enum RequestMethods {
     DELETE = "DELETE",
 }
 
-// Button component
 export enum Variant {
     PRIMARY = "primary",
     SECONDARY = "secondary",
@@ -21,7 +18,6 @@ export enum Variant {
     WARNING = "warning",
 }
 
-// Rate component
 export enum Place {
     TOP_RIGHT = "top-right",
     TOP_LEFT = "top-left",
@@ -29,7 +25,12 @@ export enum Place {
     BOTTOM_RIGHT = "bottom-right",
 }
 
-// Header component
 export const headerConstants = {
     placeholder: "Search by movie title",
 };
+
+export enum ServiceName {
+    SEARCH = "SEARCH",
+    WATCHLIST = "WATCHLIST",
+    PUBLIC = "PUBLIC",
+}

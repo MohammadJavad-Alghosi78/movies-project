@@ -1,4 +1,3 @@
-// node_modules
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // api
@@ -7,10 +6,10 @@ import { useGetMoviesBysearchQuery } from "apps/Search/core/redux/searchMoviesSl
 import useDebounce from "apps/shared/core/modules/hooks/useDebounce";
 // components
 import MovieCard from "apps/shared/components/MovieCard";
-// types  Refactor: change directory of this type
-import { MovieType } from "apps/shared/types/MovieType";
+// types
+import { MovieType } from "apps/shared/types/SharedTypes";
 // styles
-import classes from "apps/Search/styles/style.module.scss";
+import classes from "apps/Search/styles/search.module.scss";
 
 function SearchView(): JSX.Element {
     const router = useRouter();

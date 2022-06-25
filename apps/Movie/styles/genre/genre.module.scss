@@ -1,0 +1,11 @@
+@import "apps/shared/styles/variables.scss";
+
+.genre_wrapper {
+    width: 6.25rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    background-color: $yellow;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+}

@@ -1,5 +1,4 @@
-// node_modules
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // api
@@ -14,20 +13,15 @@ import ActorCard from "apps/Movie/components/ActorCard";
 import Box from "apps/shared/components/Box";
 import Button from "apps/shared/components/Button";
 // types
-import { MovieGenreType } from "apps/Movie/types/MovieGenreType";
-import classes from "apps/Movie/styles/style.module.scss";
-import { CastAndCrewType } from "../types/CreditType";
+import { MovieGenreType, CastAndCrewType } from "apps/Movie/types/MovieTypes";
+// hooks
+import useAuth from "@/apps/shared/core/modules/hooks/useAuth";
 // styles
+import classes from "apps/Movie/styles/movie.module.scss";
 
 function MovieView(): JSX.Element {
     const router = useRouter();
-    const [isLogin, setIsLogin] = useState<boolean>(false);
-
-    useEffect(() => {
-        const token = sessionStorage.getItem("token");
-        if (token) setIsLogin(true);
-        else setIsLogin(false);
-    }, []);
+    const { isLoggedIn } = useAuth();
 
     const {
         isLoading,
@@ -46,7 +40,7 @@ function MovieView(): JSX.Element {
         <>
             <Box>
                 <h3>{movie?.original_title}</h3>
-                {isLogin && (
+                {isLoggedIn && (
                     <Button
                         styles={{ width: "12.5rem" }}
                         onClick={() =>

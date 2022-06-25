@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 import { useRouter } from "next/router";
 // api

@@ -1,11 +1,10 @@
-// node_modules
 import React from "react";
 // types
-import { ButtonPropsType } from "apps/shared/types/ButtonType";
+import { ButtonPropsType } from "apps/shared/types/SharedTypes";
 // constants
 import { Variant } from "apps/shared/core/constants";
 // styles
-import classes from "apps/shared/styles/button/style.module.scss";
+import classes from "apps/shared/styles/button/button.module.scss";
 
 function Button({
     children,
