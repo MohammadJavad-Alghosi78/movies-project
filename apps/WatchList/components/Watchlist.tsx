@@ -11,8 +11,6 @@ import classes from "apps/WatchList/styles/watchlist.module.scss";
 function WatchListView() {
     const { isLoading, isError, data: movies } = useGetWatchListQuery();
 
-    console.log(movies);
-
     if (isLoading) return <h3>Loading...</h3>;
     if (isError && !sessionStorage.getItem("token"))
         return <h1>You are not login</h1>;
