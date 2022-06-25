@@ -42,7 +42,7 @@ function MovieView(): JSX.Element {
                 <h3>{movie?.original_title}</h3>
                 {isLoggedIn && (
                     <Button
-                        styles={{ width: "12.5rem" }}
+                        variant="primary-medium"
                         onClick={() =>
                             addMovieToWatchList({
                                 media_type: "movie",

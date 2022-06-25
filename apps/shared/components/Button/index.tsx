@@ -19,6 +19,10 @@ function Button({
                 return classes.button_primary;
             case Variant.DANGER:
                 return classes.button_danger;
+            case Variant.DANGER_FULLWIDTH:
+                return classes.danger_fullwidth;
+            case Variant.PRIMARY_MEDIUM:
+                return classes.primary_medium;
             default:
                 return "";
         }

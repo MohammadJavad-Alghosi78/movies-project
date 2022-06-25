@@ -1,6 +1,10 @@
 import React, { ReactNode } from "react";
 
-type TButtonVariant = "primary" | "danger";
+type TButtonVariant =
+    | "primary"
+    | "danger"
+    | "danger-full-width"
+    | "primary-medium";
 type TButtonType = "button" | "submit";
 
 export type ButtonPropsType = {

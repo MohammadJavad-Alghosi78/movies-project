@@ -92,11 +92,7 @@ function LoginView() {
                             hasBorder
                         />
                     </div>
-                    <Button
-                        variant="danger"
-                        type="submit"
-                        styles={{ width: "100%" }}
-                    >
+                    <Button variant="danger-full-width" type="submit">
                         submit
                     </Button>
                 </form>
