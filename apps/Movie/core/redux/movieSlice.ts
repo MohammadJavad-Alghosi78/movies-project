@@ -2,7 +2,7 @@
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
 import { MovieType } from "apps/shared/types/MovieType";
-import { CreditType } from "apps/Movie/types/CreditType";
+import { CreditType } from "apps/Movie/types/MovieTypes";
 // helper
 import handleUrl from "apps/Movie/core/modules/requestUrl";
 

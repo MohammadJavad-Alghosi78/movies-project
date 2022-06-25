@@ -1,3 +1,8 @@
+export type ActorType = {
+    character: string;
+    name: string;
+};
+
 export type CastAndCrewType = {
     adult: boolean;
     cast_id: number | string;
@@ -17,4 +22,13 @@ export type CreditType = {
     id: number;
     cast: CastAndCrewType[];
     crew: CastAndCrewType[];
+};
+
+export type GenreType = {
+    label: string;
+};
+
+export type MovieGenreType = {
+    id: number;
+    name: string;
 };

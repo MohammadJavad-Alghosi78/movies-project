@@ -1,6 +1,6 @@
 import React from "react";
 // types
-import { GenreType } from "apps/Movie/types/GenreType";
+import { GenreType } from "apps/Movie/types/MovieTypes";
 // styles
 import classes from "apps/Movie/styles/genre/genre.module.scss";
 

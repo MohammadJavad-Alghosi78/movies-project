@@ -1,17 +1,16 @@
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
-import { GetTokenResponseType } from "apps/Login/types/GetTokenType";
 import {
+    GetTokenResponseType,
     LoginDataType,
     ValidateLoginResponseType,
-} from "apps/Login/types/LoginDataType";
-// helper
-import handleUrl from "apps/Login/core/modules/requestUrl";
-import {
     CreateNewSessionRequestType,
     CreateNewSessionResponseType,
-} from "apps/Login/types/CreateSessionType";
+} from "apps/Login/types/LoginTypes";
+
+// helper
+import handleUrl from "apps/Login/core/modules/requestUrl";
 
 export const loginSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
