@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 // components
 import Header from "apps/shared/components/Layout/Header";

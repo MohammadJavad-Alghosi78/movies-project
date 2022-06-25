@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-// node_modules
 import React from "react";
 // api
 import { useDeleteMovieFromWatchListMutation } from "apps/WatchList/core/redux/watchlistSlice";

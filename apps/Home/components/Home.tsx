@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 // api
 import { useGetMoviesQuery } from "apps/Home/core/redux/moviesSlice";

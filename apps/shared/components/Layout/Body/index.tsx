@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 // styles
 import classes from "apps/shared/styles/layout/body/style.module.scss";

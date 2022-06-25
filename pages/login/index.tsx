@@ -1,4 +1,3 @@
-// node_modules
 import React, { ReactElement } from "react";
 // Components
 import Layout from "apps/shared/components/Layout";

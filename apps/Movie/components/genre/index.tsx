@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 // types
 import { GenreType } from "apps/Movie/types/GenreType";

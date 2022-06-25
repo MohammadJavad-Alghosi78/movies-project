@@ -1,4 +1,3 @@
-// node_modules
 import React from "react";
 // api
 import { useGetWatchListQuery } from "apps/WatchList/core/redux/watchlistSlice";
