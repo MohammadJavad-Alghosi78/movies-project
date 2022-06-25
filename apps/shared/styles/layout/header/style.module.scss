@@ -1,22 +1,27 @@
 @import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
 
 .header_wrapper {
-    @include flex-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     background-color: $black;
     color: $yellow;
     padding: $page-padding;
     max-height: 4.5rem;
     .left_section {
-        @include flex-center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .home_link {
             margin-right: 0.75rem;
             cursor: pointer;
         }
     }
     .right_section {
-        @include flex-between;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         .watchlist_text {
             margin-right: 1rem;

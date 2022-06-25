@@ -1,16 +1,13 @@
 @import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
 
 @mixin rating {
-    @include flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 2rem;
     height: 2rem;
     border: 0.0625rem solid $red;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
     position: absolute;
 }
 

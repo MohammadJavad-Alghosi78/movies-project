@@ -1,5 +1,4 @@
 @import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
 
 .genre_wrapper {
     width: 6.25rem;
@@ -8,9 +7,5 @@
     outline: none;
     background-color: $yellow;
     border-radius: 0.75rem;
-    -webkit-border-radius: 0.75rem;
-    -moz-border-radius: 0.75rem;
-    -ms-border-radius: 0.75rem;
-    -o-border-radius: 0.75rem;
     font-size: 0.75rem;
 }

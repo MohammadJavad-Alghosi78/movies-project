@@ -1,8 +1,10 @@
 @import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
 
 .actor_card_wrapper {
-    @include flex-column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 12.5rem;
     height: 12.5rem;
     margin: 0.5rem;

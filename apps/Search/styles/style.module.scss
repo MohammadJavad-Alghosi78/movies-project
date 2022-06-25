@@ -1,6 +1,9 @@
 @import "apps/shared/styles/variables.scss";
-@import "apps/shared/styles/mixins.scss";
 
 .movies_wrapper {
-    @include responsive-wrapper;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
