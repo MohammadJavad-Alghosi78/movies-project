@@ -28,6 +28,7 @@ export type MovieType = {
     genre_ids?: number[];
     id?: number;
     original_language?: string;
+    originalTitle?: string;
     original_title?: string;
     overview?: string;
     popularity?: number;

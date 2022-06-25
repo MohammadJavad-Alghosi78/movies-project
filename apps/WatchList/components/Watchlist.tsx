@@ -21,7 +21,7 @@ function WatchListView() {
                 <WatchListMovieCard
                     key={movie.id}
                     movieId={movie.id}
-                    original_title={movie.original_title}
+                    originalTitle={movie.original_title}
                     overview={movie.overview}
                 />
             ))}

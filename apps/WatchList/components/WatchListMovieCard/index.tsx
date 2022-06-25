@@ -11,13 +11,13 @@ import classes from "apps/WatchList/styles/watchlistMovieCard/watchlistMovieCard
 
 function WatchListMovieCard({
     movieId,
-    original_title,
+    originalTitle,
     overview,
 }: MovieType): JSX.Element {
     const [removeMovieFromWatchList] = useDeleteMovieFromWatchListMutation();
     return (
         <div className={classes.watchlist_movie_card}>
-            <h3>{original_title}</h3>
+            <h3>{originalTitle}</h3>
             <h5>{overview}</h5>
             <Button
                 variant="danger"
