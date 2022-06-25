@@ -20,12 +20,12 @@ import { CastAndCrewType } from "../types/CreditType";
 
 function MovieView(): JSX.Element {
     const router = useRouter();
-    const [isLogin, setIsLogin] = useState<boolean>(false);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
         const token = sessionStorage.getItem("token");
-        if (token) setIsLogin(true);
-        else setIsLogin(false);
+        if (token) setIsLoggedIn(true);
+        else setIsLoggedIn(false);
     }, []);
 
     const {
@@ -45,7 +45,7 @@ function MovieView(): JSX.Element {
         <>
             <Box>
                 <h3>{movie?.original_title}</h3>
-                {isLogin && (
+                {isLoggedIn && (
                     <Button
                         styles={{ width: "12.5rem" }}
                         onClick={() =>
