@@ -16,7 +16,7 @@ import handleUrl from "apps/WatchList/core/modules/requestUrl";
 // constants
 import { RequestMethods } from "apps/shared/core/constants";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const watchlistSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getWatchList: builder.query<MoviesType, void>({
             query: () => handleUrl(RequestMethods.GET),
@@ -52,7 +52,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
             // Optimistic update cach not working!
             onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
                 dispatch(
-                    extendedApiSlice.util.updateQueryData(
+                    watchlistSlice.util.updateQueryData(
                         "getWatchList",
                         undefined,
                         data => {
@@ -76,4 +76,4 @@ export const {
     useGetWatchListQuery,
     useAddMovieToWatchListMutation,
     useDeleteMovieFromWatchListMutation,
-} = extendedApiSlice;
+} = watchlistSlice;

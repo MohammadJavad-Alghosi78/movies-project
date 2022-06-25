@@ -5,7 +5,7 @@ import { MoviesType } from "apps/shared/types/MoviesType";
 // helper
 import handleUrl from "apps/Search/core/modules/requestUrl";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const searchSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getMoviesBysearch: builder.query<MoviesType, string>({
             query: (title = "") => handleUrl("/search/movie", title),
@@ -13,4 +13,4 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
 });
 
-export const { useGetMoviesBysearchQuery } = extendedApiSlice;
+export const { useGetMoviesBysearchQuery } = searchSlice;

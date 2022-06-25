@@ -5,7 +5,7 @@ import { MoviesType } from "apps/shared/types/MoviesType";
 // helper
 import handleUrl from "apps/Movie/core/modules/requestUrl";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const moviesSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getMovies: builder.query<MoviesType, void>({
             query: () => handleUrl("/movie/popular"),
@@ -13,4 +13,4 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
 });
 
-export const { useGetMoviesQuery } = extendedApiSlice;
+export const { useGetMoviesQuery } = moviesSlice;

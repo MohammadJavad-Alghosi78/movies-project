@@ -13,7 +13,7 @@ import {
     CreateNewSessionResponseType,
 } from "apps/Login/types/CreateSessionType";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const loginSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getToken: builder.query<GetTokenResponseType, void>({
             query: () => handleUrl("/authentication/token/new"),
@@ -61,4 +61,4 @@ export const {
     useValidateTokenMutation,
     useCreateNewSessionMutation,
     useRemoveSessionMutation,
-} = extendedApiSlice;
+} = loginSlice;
