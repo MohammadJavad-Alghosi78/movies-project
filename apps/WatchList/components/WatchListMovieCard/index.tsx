@@ -10,7 +10,7 @@ import { MovieType } from "apps/shared/types/SharedTypes";
 import classes from "apps/WatchList/styles/watchlistMovieCard/watchlistMovieCard.module.scss";
 
 function WatchListMovieCard({
-    movieId = "1",
+    movieId,
     original_title,
     overview,
 }: MovieType): JSX.Element {
