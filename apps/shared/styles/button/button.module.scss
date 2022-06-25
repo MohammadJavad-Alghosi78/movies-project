@@ -23,3 +23,16 @@
     background-color: $yellow;
     color: $black;
 }
+
+.danger_fullwidth {
+    @include default-button;
+    width: 100%;
+    background-color: $yellow;
+    color: $black;
+}
+
+.primary_medium {
+    @include default-button;
+    background-color: $red;
+    width: 9rem;
+}

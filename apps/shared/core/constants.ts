@@ -15,6 +15,8 @@ export enum Variant {
     SECONDARY = "secondary",
     DANGER = "danger",
     WARNING = "warning",
+    DANGER_FULLWIDTH = "danger-full-width",
+    PRIMARY_MEDIUM = "primary-medium",
 }
 
 export enum Place {
