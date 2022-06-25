@@ -4,7 +4,7 @@ export type LoginDataType = {
     request_token: string;
 };
 
-export type validateLoginResponseType = {
+export type ValidateLoginResponseType = {
     expires_at: string;
     request_token: string;
     success: true;

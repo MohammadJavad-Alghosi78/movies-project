@@ -1,7 +1,7 @@
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // type
-import { ActorType } from "apps/Actor/types/actorType";
+import { ActorType } from "apps/Actor/types/ActorType";
 // helper
 import handleUrl from "apps/Actor/core/modules/requestUrl";
 
