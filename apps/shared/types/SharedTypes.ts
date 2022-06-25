@@ -37,6 +37,7 @@ export type MovieType = {
     title?: string;
     video?: boolean;
     vote_average?: number;
+    media_id?: string;
     vote_count?: number;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     genres?: { id: number; name: string }[] | any;

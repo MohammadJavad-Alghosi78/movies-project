@@ -2,6 +2,8 @@ export type MovieDataType = {
     media_type: string;
     media_id: string | null | undefined;
     watchlist: boolean;
+    title?: string;
+    overview?: string;
 };
 
 export type MovieToWatchListType = {

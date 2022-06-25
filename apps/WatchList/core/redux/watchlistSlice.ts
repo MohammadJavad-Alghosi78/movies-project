@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-identical-functions */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -20,7 +21,6 @@ export const watchlistSlice = apiSlice.injectEndpoints({
         getWatchList: builder.query<MoviesType, void>({
             query: () =>
                 handleUrl("", ServiceName.WATCHLIST, "", RequestMethods.GET),
-            providesTags: [{ type: "Watchlist", id: "LIST" }],
         }),
         addMovieToWatchList: builder.mutation<
             AddToWatchlistResponseType,
@@ -44,7 +44,25 @@ export const watchlistSlice = apiSlice.injectEndpoints({
                     },
                 };
             },
-            invalidatesTags: [{ type: "Watchlist", id: "LIST" }],
+            onQueryStarted(
+                { title, overview, media_id },
+                { dispatch, queryFulfilled }
+            ) {
+                dispatch(
+                    watchlistSlice.util.updateQueryData(
+                        "getWatchList",
+                        undefined,
+                        data => {
+                            data.results.push({
+                                original_title: title,
+                                overview,
+                                id: Number(media_id),
+                            });
+                        }
+                    )
+                );
+                queryFulfilled;
+            },
         }),
         deleteMovieFromWatchList: builder.mutation<
             any,

@@ -17,10 +17,10 @@ const handleUrl = (
             return `${baseUrl}?api_key=${accountConstants.apiKey}&query=${title}`;
         case ServiceName.WATCHLIST:
             if (method === RequestMethods.GET) {
-                return `/account/${accountConstants.accountId}/watchlist/movies?api_key=${accountConstants.apiKey}&session_id=${sessionId}`;
+                return `/account/Milad787878/watchlist/movies?api_key=${accountConstants.apiKey}&session_id=${sessionId}`;
             }
             if (RequestMethods.POST) {
-                return `/account/${accountConstants.accountId}/watchlist?api_key=${accountConstants.apiKey}&session_id=${sessionId}`;
+                return `/account/Milad787878/watchlist?api_key=${accountConstants.apiKey}&session_id=${sessionId}`;
             }
             return "";
         default:

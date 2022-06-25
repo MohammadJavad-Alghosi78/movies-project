@@ -48,6 +48,8 @@ function MovieView(): JSX.Element {
                                 media_type: "movie",
                                 media_id: String(movie?.id),
                                 watchlist: true,
+                                title: movie.original_title,
+                                overview: movie.overview,
                             })
                         }
                     >
