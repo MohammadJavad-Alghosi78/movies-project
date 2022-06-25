@@ -34,8 +34,7 @@ function LoginView() {
     };
 
     useEffect(() => {
-        if (!isValid) return undefined;
-        if (tokenData) {
+        if (isValid && tokenData) {
             const { request_token } = tokenData;
             validateToken({ username, password, request_token });
         }
