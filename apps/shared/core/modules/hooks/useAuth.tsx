@@ -1,35 +1,30 @@
 import { useEffect, useState } from "react";
-
-type AuthType = {
-    isLogin: boolean;
-    removeToken: () => void;
-    handleLogin: () => void;
-    sessionId: string;
-};
+// types
+import { AuthType } from "apps/shared/types/modules/hooks/AuthType";
 
 const useAuth = (): AuthType => {
-    const [isLogin, setIsLogin] = useState<boolean>(false);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [sessionId, setSessionId] = useState<string | null>(null);
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         if (token) {
-            setIsLogin(true);
+            setIsLoggedIn(true);
             setSessionId(token);
         }
     }, []);
     const removeToken = () => {
         sessionStorage.removeItem("token");
-        setIsLogin(false);
+        setIsLoggedIn(false);
     };
     const handleLogin = () => {
         const token = sessionStorage.getItem("token");
         if (token) {
-            setIsLogin(true);
+            setIsLoggedIn(true);
         } else {
-            setIsLogin(false);
+            setIsLoggedIn(false);
         }
     };
-    return { isLogin, removeToken, handleLogin, sessionId };
+    return { isLoggedIn, removeToken, handleLogin, sessionId };
 };
 
 export default useAuth;

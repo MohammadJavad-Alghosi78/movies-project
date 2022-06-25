@@ -4,7 +4,6 @@ import Link from "next/link";
 // components
 import Rate from "apps/shared/components/Rate";
 // types
-// Refactor: change the directory of MovieType
 import { MovieType } from "apps/shared/types/MovieType";
 // styles
 import classes from "apps/shared/styles/movieCard/movieCard.module.scss";
