@@ -48,7 +48,6 @@ export const watchlistSlice = apiSlice.injectEndpoints({
                 url: `/posts/${movieId}`,
                 method: RequestMethods.DELETE,
             }),
-            // Optimistic update cach not working!
             onQueryStarted({ movieId }, { dispatch, queryFulfilled }) {
                 dispatch(
                     watchlistSlice.util.updateQueryData(
@@ -61,11 +60,7 @@ export const watchlistSlice = apiSlice.injectEndpoints({
                         }
                     )
                 );
-                try {
-                    queryFulfilled;
-                } catch {
-                    // finalWatchlist.undo();
-                }
+                queryFulfilled;
             },
         }),
     }),
