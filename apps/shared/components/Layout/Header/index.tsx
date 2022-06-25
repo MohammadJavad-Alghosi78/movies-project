@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // components
-import TextField from "@/apps/shared/components/TextField";
+import TextField from "apps/shared/components/TextField";
 import Button from "apps/shared/components/Button";
 // api
 import { useRemoveSessionMutation } from "apps/Login/core/redux/loginSlice";

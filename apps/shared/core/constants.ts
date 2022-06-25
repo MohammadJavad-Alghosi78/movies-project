@@ -28,3 +28,9 @@ export enum Place {
 export const headerConstants = {
     placeholder: "Search by movie title",
 };
+
+export enum ServiceName {
+    SEARCH = "SEARCH",
+    WATCHLIST = "WATCHLIST",
+    PUBLIC = "PUBLIC",
+}

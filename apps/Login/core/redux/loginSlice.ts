@@ -8,21 +8,26 @@ import {
     CreateNewSessionRequestType,
     CreateNewSessionResponseType,
 } from "apps/Login/types/LoginTypes";
-
+// constants
+import { ServiceName } from "apps/shared/core/constants";
 // helper
-import handleUrl from "apps/Login/core/modules/requestUrl";
+import handleUrl from "apps/shared/core/modules/helper/requestUrl";
 
 export const loginSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getToken: builder.query<GetTokenResponseType, void>({
-            query: () => handleUrl("/authentication/token/new"),
+            query: () =>
+                handleUrl("/authentication/token/new", ServiceName.PUBLIC),
         }),
         validateToken: builder.mutation<
             ValidateLoginResponseType,
             LoginDataType
         >({
             query: loginData => ({
-                url: handleUrl("/authentication/token/validate_with_login"),
+                url: handleUrl(
+                    "/authentication/token/validate_with_login",
+                    ServiceName.PUBLIC
+                ),
                 method: "POST",
                 body: {
                     username: loginData.username,
@@ -36,7 +41,10 @@ export const loginSlice = apiSlice.injectEndpoints({
             CreateNewSessionRequestType
         >({
             query: data => ({
-                url: handleUrl("/authentication/session/new"),
+                url: handleUrl(
+                    "/authentication/session/new",
+                    ServiceName.PUBLIC
+                ),
                 method: "POST",
                 body: {
                     request_token: data.request_token,
@@ -45,7 +53,7 @@ export const loginSlice = apiSlice.injectEndpoints({
         }),
         removeSession: builder.mutation<{ success: boolean }, string>({
             query: sessionId => ({
-                url: handleUrl("/authentication/session"),
+                url: handleUrl("/authentication/session", ServiceName.PUBLIC),
                 method: "DELETE",
                 body: {
                     session_id: sessionId,

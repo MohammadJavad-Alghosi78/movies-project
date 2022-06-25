@@ -11,14 +11,15 @@ import {
     MovieDataType,
 } from "apps/WatchList/types/WatchListTypes";
 // helper
-import handleUrl from "apps/WatchList/core/modules/requestUrl";
+import handleUrl from "apps/shared/core/modules/helper/requestUrl";
 // constants
-import { RequestMethods } from "apps/shared/core/constants";
+import { RequestMethods, ServiceName } from "apps/shared/core/constants";
 
 export const watchlistSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getWatchList: builder.query<MoviesType, void>({
-            query: () => handleUrl(RequestMethods.GET),
+            query: () =>
+                handleUrl("", ServiceName.WATCHLIST, "", RequestMethods.GET),
             providesTags: [{ type: "Watchlist", id: "LIST" }],
         }),
         addMovieToWatchList: builder.mutation<
@@ -29,7 +30,12 @@ export const watchlistSlice = apiSlice.injectEndpoints({
                 const { media_type, media_id, watchlist }: MovieDataType =
                     movieData;
                 return {
-                    url: handleUrl(RequestMethods.POST),
+                    url: handleUrl(
+                        "",
+                        ServiceName.WATCHLIST,
+                        "",
+                        RequestMethods.POST
+                    ),
                     method: RequestMethods.POST,
                     body: {
                         media_type,
