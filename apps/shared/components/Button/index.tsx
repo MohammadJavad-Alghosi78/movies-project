@@ -1,6 +1,6 @@
 import React from "react";
 // types
-import { ButtonPropsType } from "apps/shared/types/ButtonType";
+import { ButtonPropsType } from "apps/shared/types/SharedTypes";
 // constants
 import { Variant } from "apps/shared/core/constants";
 // styles

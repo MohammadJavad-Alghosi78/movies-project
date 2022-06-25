@@ -4,7 +4,7 @@ import { useGetMoviesQuery } from "apps/Home/core/redux/moviesSlice";
 // components
 import MovieCard from "apps/shared/components/MovieCard";
 // types
-import { MovieType } from "apps/shared/types/MovieType";
+import { MovieType } from "apps/shared/types/SharedTypes";
 // styles
 import classes from "apps/Home/styles/home.module.scss";
 

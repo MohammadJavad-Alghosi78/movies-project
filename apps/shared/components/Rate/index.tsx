@@ -1,6 +1,6 @@
 import React from "react";
 // types
-import { RateType } from "apps/shared/types/RateType";
+import { RateType } from "apps/shared/types/SharedTypes";
 // constants
 import { Place } from "apps/shared/core/constants";
 // styles

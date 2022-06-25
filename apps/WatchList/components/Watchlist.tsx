@@ -2,7 +2,7 @@ import React from "react";
 // api
 import { useGetWatchListQuery } from "apps/WatchList/core/redux/watchlistSlice";
 // types
-import { MovieType } from "apps/shared/types/MovieType";
+import { MovieType } from "apps/shared/types/SharedTypes";
 // components
 import WatchListMovieCard from "apps/WatchList/components/WatchListMovieCard";
 // styles

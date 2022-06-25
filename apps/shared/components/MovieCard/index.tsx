@@ -4,7 +4,7 @@ import Link from "next/link";
 // components
 import Rate from "apps/shared/components/Rate";
 // types
-import { MovieType } from "apps/shared/types/MovieType";
+import { MovieType } from "apps/shared/types/SharedTypes";
 // styles
 import classes from "apps/shared/styles/movieCard/movieCard.module.scss";
 

@@ -5,8 +5,7 @@
 // main slice
 import { apiSlice } from "apps/shared/core/redux/api/apiSlice";
 // types
-import { MoviesType } from "apps/shared/types/MoviesType";
-import { MovieType } from "apps/shared/types/MovieType";
+import { MoviesType, MovieType } from "apps/shared/types/SharedTypes";
 import {
     AddToWatchlistResponseType,
     MovieDataType,

@@ -1,6 +1,6 @@
 import React from "react";
 // types
-import { TextFieldPropsTypes } from "apps/shared/types/TextFieldType";
+import { TextFieldPropsTypes } from "apps/shared/types/SharedTypes";
 // styles
 import classes from "apps/shared/styles/textField/textField.module.scss";
 
