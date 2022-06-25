@@ -4,7 +4,7 @@ import React from "react";
 import { useDeleteMovieFromWatchListMutation } from "apps/WatchList/core/redux/watchlistSlice";
 // components
 import Button from "apps/shared/components/Button";
-// Types Refactor: change the directory of MovieType
+// types
 import { MovieType } from "apps/shared/types/SharedTypes";
 // Styles
 import classes from "apps/WatchList/styles/watchlistMovieCard/watchlistMovieCard.module.scss";

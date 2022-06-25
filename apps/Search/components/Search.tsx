@@ -6,7 +6,7 @@ import { useGetMoviesBysearchQuery } from "apps/Search/core/redux/searchMoviesSl
 import useDebounce from "apps/shared/core/modules/hooks/useDebounce";
 // components
 import MovieCard from "apps/shared/components/MovieCard";
-// types  Refactor: change directory of this type
+// types
 import { MovieType } from "apps/shared/types/SharedTypes";
 // styles
 import classes from "apps/Search/styles/search.module.scss";

@@ -49,10 +49,6 @@ export type MoviesType = {
     total_results?: number;
 };
 
-export type HeaderType = {
-    isLogin?: boolean;
-};
-
 export type BoxType = {
     children: ReactNode;
 };

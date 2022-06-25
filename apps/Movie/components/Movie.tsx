@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // api
@@ -14,18 +14,14 @@ import Box from "apps/shared/components/Box";
 import Button from "apps/shared/components/Button";
 // types
 import { MovieGenreType, CastAndCrewType } from "apps/Movie/types/MovieTypes";
+// hooks
+import useAuth from "@/apps/shared/core/modules/hooks/useAuth";
 // styles
 import classes from "apps/Movie/styles/movie.module.scss";
 
 function MovieView(): JSX.Element {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
-    useEffect(() => {
-        const token = sessionStorage.getItem("token");
-        if (token) setIsLoggedIn(true);
-        else setIsLoggedIn(false);
-    }, []);
+    const { isLoggedIn } = useAuth();
 
     const {
         isLoading,
